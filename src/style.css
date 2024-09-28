@@ -10,6 +10,13 @@
     src: url(../public/radon.ttf);
 }
 
+@font-face {
+    font-family: "Xenon";
+    font-size: 13px;
+    src: url(../public/xenon.ttf);
+}
+
+/* Maybe move this to seperate file for each theme */
 @property --truffle-black {
     syntax: "<color>";
     inherits: false;
@@ -108,6 +115,33 @@
 
 body {
     background-color: var(--milk-cream);
+    font-family: "Inter", sans-serif;
+}
+
+header {
+    position: fixed;
+    right: 1em;
+    left: 1em;
+    display: flex;
+    z-index: 999;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > nav {
+    display: flex;
+    gap: 2em;
+    background-color: var(--frosting-white);
+    margin: 0.5em;
+    padding: 1em;
+    border-radius: 1em;
+    box-shadow:
+            inset 0px 0px 2px 2px rgba(0, 0, 0, 0.09),
+            inset 0px -8px 2px 2px rgba(0, 0, 0, 0.07),
+            0px 2px 3px 0px rgba(0, 0, 0, 0.05);
+}
+
+a {
 }
 
 .codeground {
@@ -117,6 +151,10 @@ body {
     font-family: Argon;
     border-radius: 1em;
 }
+
+/* body {
+    font-family: Argon;
+} */
 
 .codeground > h1 {
     text-indent: 0.2em;
@@ -141,65 +179,83 @@ body {
     font-weight: 800;
     font-size: 10em;
     font-style: normal;
-    z-index: -1;
-    color: var(--frosting-white);
     line-height: 0;
     margin: .3em;
     transform: skewY(-7deg);
-    
     text-shadow: 2px 2px 0 var(--truffle-black);
+    
+    counter-reset: delay;
 }
 
-.hero > h1 + span {
+.hero > h1 > span {
     animation: moving-text-color 10s alternate infinite step-end;
-    animation-play-state: paused;
+    transition: 1s;
+    padding: 0;
+    transform: translate(0);
+    animation-delay: calc(var(--delay) * -1s);
+    
+    counter-increment: delay;
 }
 
-.hero > *:hover + h1 > span {
-    animation-play-state: running;
+.hero > h1:hover > span {
+    font-size: 0.9em;
+}
+
+.hero>h1:hover>span:hover{
+    padding: 0.1em;
+    font-size: 1.3em;
+}
+
+.hero>h1:hover>span:hover+*, .hero>h1:hover>span:has(+ :hover) {
+    padding: 0.075em;
+    
+}
+
+.hero > h1:hover > span:not(:hover) {
+    --default-color: var(--frosting-white);
 }
 
 
 @keyframes moving-text-color {
     0% {
-        color: var(--honey-yellow);
+        color: var(--default-color, var(--honey-yellow));
     }
     11% {
-        color: var(--mango-orange);
+        color: var(--default-color, var(--mango-orange));
     }
     22% {
-        color: var(--mango-orange);
+        color: var(--default-color, var(--cocoa-brown));
     }
     33% {
-        color: var(--minty-blue);
+        color: var(--default-color, var(--minty-blue));
     }
     44% {
-        color: var(--matcha-green);
+        color: var(--default-color, var(--matcha-green));
     }
     55% {
-        color: var(--sherbet-lime);
+        color: var(--default-color, var(--sherbet-lime));
     }
     66% {
-        color: var(--coconut-aqua);
+        color: var(--default-color, var(--coconut-aqua));
     }
     77% {
-        color: var(--glacier-capri);
+        color: var(--default-color, var(--glacier-capri));
     }
     88% {
-        color: var(--frost-lavender);
+        color: var(--default-color, var(--frost-lavender));
     }
     100% {
-        color: var(--bubblegum-pink);
+        color: var(--default-color, var(--bubblegum-pink));
     }
 }
 
 .hero > h2 {
-    font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
     color: var(--truffle-black);
     line-height: 0;
+    z-index: 1;
     text-shadow: 
             .05em .05em 0 var(--milk-cream),
             -.05em .05em 0 var(--milk-cream),
@@ -208,7 +264,6 @@ body {
 }
 
 .hero > p {
-    font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     line-height: 0;
     color: var(--plum-purple);
@@ -228,7 +283,7 @@ body {
     margin: -2px;
 }
 
-.reserved {
+.keyword {
     background: var(--bubblegum-pink);
     color: var(--plum-purple);
     border-radius: 4px;
@@ -289,6 +344,40 @@ body {
 .string > .template {
     background-color: var(--cocoa-brown);
     border-radius: 4px;
+}
+
+details.doc-comment {
+    font-family: Xenon;
+    color: var(--truffle-black);
+    background-color: var(--frosting-white);
+    margin: -4px;
+    padding: 4px;
+    border-radius: 12px;
+    box-shadow: 
+            inset 0px 0px 2px 2px rgba(0, 0, 0, 0.09),
+            inset 0px -2px 2px 2px rgba(0, 0, 0, 0.07),
+            0px 2px 3px 0px rgba(0, 0, 0, 0.05);
+}
+
+details.doc-comment[open] {
+    box-shadow:
+        inset 0px 0px 2px 2px rgba(0, 0, 0, 0.09),
+        inset 0px -8px 2px 2px rgba(0, 0, 0, 0.07),
+        0px 2px 3px 0px rgba(0, 0, 0, 0.05);
+}
+
+/* details.doc-comment[open] > summary {
+    display: none;
+} */
+
+.doc-comment.doc-link {
+    color: var(--frost-lavender);
+    font-style: italic;
+}
+
+.doc-comment.doc-tag {
+    color: var(--bubblegum-pink);
+    font-style: italic;
 }
 
 .comment {
