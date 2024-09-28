@@ -1,0 +1,300 @@
+@font-face {
+    font-family: "Argon";
+    font-size: 13px;
+    src: url(../public/argon.ttf);
+}
+
+@font-face {
+    font-family: "Radon";
+    font-size: 13px;
+    src: url(../public/radon.ttf);
+}
+
+@property --truffle-black {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #28282e;
+}
+
+@property --plum-purple {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #6c5671;
+}
+
+@property --almond-beige {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #d9c8bf;
+}
+
+@property --milk-cream {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #ffe6c6;
+}
+
+@property --frosting-white {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #fff7e4;
+}
+
+@property --honey-yellow {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #fff7a0;
+}
+
+@property --mango-orange {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #ffc384;
+}
+
+@property --cocoa-brown {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #dea38b;
+}
+
+@property --sherbet-lime {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #e9f59d;
+}
+
+@property --matcha-green {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #b0eb93;
+}
+
+@property --minty-blue {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #87a889;
+}
+
+@property --bubblegum-pink {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #feaae4;
+}
+
+@property --coconut-aqua {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #b3e3da;
+}
+
+@property --glacier-capri {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #accce4;
+}
+
+@property --frost-lavender {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #b0a9e4;
+}
+
+@property --berry-red {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #f98284;
+}
+
+body {
+    background-color: var(--milk-cream);
+}
+
+.codeground {
+    padding: 1em;
+    background-color: var(--frosting-white);
+    line-height: 0.7em;
+    font-family: Argon;
+    border-radius: 1em;
+}
+
+.codeground > h1 {
+    text-indent: 0.2em;
+    font-size: 1.4em;
+    margin-top: 0.2em;
+}
+
+.codeground > hr {
+    border-top: 1px solid var(--truffle-black);
+    margin: -.5em;
+}
+
+.hero {
+    display: grid;
+    place-content: center;
+    place-items: center;
+    height: 90svh;
+}
+
+.hero > h1 {
+    font-family: "Gloria Hallelujah", cursive;
+    font-weight: 800;
+    font-size: 10em;
+    font-style: normal;
+    z-index: -1;
+    color: var(--frosting-white);
+    line-height: 0;
+    margin: .3em;
+    transform: skewY(-7deg);
+    
+    text-shadow: 2px 2px 0 var(--truffle-black);
+}
+
+.hero > h1 + span {
+    animation: moving-text-color 10s alternate infinite step-end;
+    animation-play-state: paused;
+}
+
+.hero > *:hover + h1 > span {
+    animation-play-state: running;
+}
+
+
+@keyframes moving-text-color {
+    0% {
+        color: var(--honey-yellow);
+    }
+    11% {
+        color: var(--mango-orange);
+    }
+    22% {
+        color: var(--mango-orange);
+    }
+    33% {
+        color: var(--minty-blue);
+    }
+    44% {
+        color: var(--matcha-green);
+    }
+    55% {
+        color: var(--sherbet-lime);
+    }
+    66% {
+        color: var(--coconut-aqua);
+    }
+    77% {
+        color: var(--glacier-capri);
+    }
+    88% {
+        color: var(--frost-lavender);
+    }
+    100% {
+        color: var(--bubblegum-pink);
+    }
+}
+
+.hero > h2 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    color: var(--truffle-black);
+    line-height: 0;
+    text-shadow: 
+            .05em .05em 0 var(--milk-cream),
+            -.05em .05em 0 var(--milk-cream),
+            .05em -.05em 0 var(--milk-cream),
+            -.05em -.05em 0 var(--milk-cream);
+}
+
+.hero > p {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    line-height: 0;
+    color: var(--plum-purple);
+    margin: -1em;
+}
+
+
+
+
+
+.indent {
+    padding-left: 1.5em;
+}
+
+.token {
+    padding: 2px;
+    margin: -2px;
+}
+
+.reserved {
+    background: var(--bubblegum-pink);
+    color: var(--plum-purple);
+    border-radius: 4px;
+}
+
+.types {
+    background: var(--mango-orange);
+    color: var(--frosting-white);
+    font-style: italic;
+    border-radius: 8px 4px 8px 4px;
+}
+
+.builtin {
+    background: var(--glacier-capri);
+    color: var(--frosting-white);
+    font-weight: 800;
+    border-radius: 4px;
+}
+
+.call {
+    background: var(--sherbet-lime);
+    color: var(--plum-purple);
+    border-radius: 4px;
+}
+
+.static-call {
+    background: var(--honey-yellow);
+    color: var(--plum-purple);
+    font-weight: 800;
+    border-radius: 4px;
+}
+
+.literals {
+    background: var(--frost-lavender);
+    color: var(--frosting-white);
+    border-radius: 4px;
+}
+
+.string {
+    background: var(--matcha-green);
+    color: var(--plum-purple);
+    border-radius: 4px;
+}
+
+.string > .escape {
+    color: var(--minty-blue);
+    /* text-shadow: 0 0 0.25em var(--truffle-black); */
+    /* text-shadow: 1px 1px 0 var(--plum-purple),
+            -1px -1px 0 var(--plum-purple),
+            1px -1px 0 var(--plum-purple),
+            -1px 1px 0 var(--plum-purple),
+            0px 1px 0 var(--plum-purple),
+            1px 0px 0 var(--plum-purple),
+            0px -1px 0 var(--plum-purple),
+            -1px 0px 0 var(--plum-purple); */
+}
+
+.string > .template {
+    background-color: var(--cocoa-brown);
+    border-radius: 4px;
+}
+
+.comment {
+    font-family: Radon;
+    background: var(--plum-purple);
+    color: var(--frosting-white);
+    padding: 2px;
+    border-radius: 12px 4px 12px 4px;
+}
