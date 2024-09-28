@@ -1,6 +1,6 @@
 import gleam/io
 import randomkt.{randomkt}
-import html_dsl/types/html.{body, h1, html, nav, span}
+import html_dsl/types/html.{body, h1, html, nav, span, div, br}
 import html_dsl/types/html/head.{charset, head, meta, title, style}
 import html_dsl/types/attribute.{class, id}
 import gleam/option.{None}
@@ -26,8 +26,9 @@ pub fn main() {
        None,
        html.a("https://slimeymc.github.io", None, "SlimeyAr")
        <> nav(
-         None,
+         class(None, "popup"),
          html.a("#example-code", None, "example")
+         <> html.a("#palette", None, "palette")
          <> html.a("#example-code", None, "specification")
          <> html.a("#example-code", None, "implementation")
          <> html.a("#example-code", None, "example")
@@ -53,6 +54,35 @@ pub fn main() {
        h1(None, "RandomExample.kt")
        <> html.hr()
        <> randomkt()
+     )
+     <> br()
+     <> html.article(
+      None,
+      div(
+        id(None, "palette") |> class("two-column"),
+        div(
+          class(None, "palette"),
+          div(class(None, "truffle-black palette-card popup"), span(None, "#28282e"))
+          <> div(class(None, "plum-purple palette-card popup"), span(None, "#6c5671"))
+          <> div(class(None, "almond-beige palette-card popup"), span(None, "#d9c8bf"))
+          <> div(class(None, "berry-red palette-card popup"), span(None, "#f98284"))
+          
+          <> div(class(None, "frost-lavender palette-card popup"), span(None, "#b0a9e4"))
+          <> div(class(None, "glacier-capri palette-card popup"), span(None, "#accce4"))
+          <> div(class(None, "coconut-aqua palette-card popup"), span(None, "#b3e3da"))
+          <> div(class(None, "bubblegum-pink palette-card popup"), span(None, "#feaae4"))
+          
+          <> div(class(None, "minty-blue palette-card popup"), span(None, "#87a889"))
+          <> div(class(None, "matcha-green palette-card popup"), span(None, "#b0eb93"))
+          <> div(class(None, "sherbet-lime palette-card popup"), span(None, "#e9f59d"))
+          <> div(class(None, "milk-cream palette-card popup"), span(None, "#ffe6c6"))
+          
+          <> div(class(None, "cocoa-brown palette-card popup"), span(None, "#dea38b"))
+          <> div(class(None, "mango-orange palette-card popup"), span(None, "#ffc384"))
+          <> div(class(None, "honey-yellow palette-card popup"), span(None, "#fff7a0"))
+          <> div(class(None, "frosting-white palette-card popup"), span(None, "#fff7e4"))
+        )
+      )
      )
    ),
   )

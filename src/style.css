@@ -135,13 +135,16 @@ header > nav {
     margin: 0.5em;
     padding: 1em;
     border-radius: 1em;
+}
+
+a {
+}
+
+.popup {
     box-shadow:
             inset 0px 0px 2px 2px rgba(0, 0, 0, 0.09),
             inset 0px -8px 2px 2px rgba(0, 0, 0, 0.07),
             0px 2px 3px 0px rgba(0, 0, 0, 0.05);
-}
-
-a {
 }
 
 .codeground {
@@ -270,6 +273,96 @@ a {
     margin: -1em;
 }
 
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.palette {
+    display: grid;
+    place-self: center;
+    gap: 1em;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.palette-card {
+    display: grid;
+    width:80px;
+    height: 80px;
+    place-items: center;
+    border-radius: 2px;
+}
+
+.palette-card > span {
+    background: inherit;
+    background-clip: text;
+    color: transparent;
+    filter: invert(1) grayscale(1);
+}
+
+.truffle-black {
+    background-color: var(--truffle-black);
+}
+
+.plum-purple {
+    background-color: var(--plum-purple);
+}
+
+.almond-beige {
+    background-color: var(--almond-beige);
+}
+
+.berry-red {
+    background-color: var(--berry-red);
+}
+
+.frost-lavender {
+    background-color: var(--frost-lavender);
+}
+
+.glacier-capri {
+    background-color: var(--glacier-capri);
+}
+
+.coconut-aqua {
+    background-color: var(--coconut-aqua);
+}
+
+.bubblegum-pink {
+    background-color: var(--bubblegum-pink);
+}
+
+.minty-blue {
+    background-color: var(--minty-blue);
+}
+
+.matcha-green {
+    background-color: var(--matcha-green);
+}
+
+.sherbet-lime {
+    background-color: var(--sherbet-lime);
+}
+
+.milk-cream {
+    background-color: var(--milk-cream);
+}
+
+.cocoa-brown {
+    background-color: var(--cocoa-brown);
+}
+
+.mango-orange {
+    background-color: var(--mango-orange);
+}
+
+.honey-yellow {
+    background-color: var(--honey-yellow);
+}
+
+.frosting-white {
+    background-color: var(--frosting-white);
+}
 
 
 
