@@ -18,9 +18,9 @@ jobs:
           gleam-version: "1.5.0"
           rebar3-version: "3"
           # elixir-version: "1.15.4"
-      - working-directory: ./frontline
+      - working-directory: frontline
         run: gleam deps download
-      - working-directory: ./frontline
+      - working-directory: frontline
         run: gleam test
-      - working-directory: ./frontline
+      - working-directory: frontline
         run: gleam format --check src test
