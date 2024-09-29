@@ -1,7 +1,30 @@
 import html_dsl/types/html.{div, br, p, span}
 import html_dsl/types/attribute.{class}
 import gleam/option.{None}
-import token.{indent, keyword, literals, field, types, builtin, call, static_call, annotation, operator_sign, comment, doc_comment, doc_tag, doc_link, string}
+import token.{
+  indent, 
+  keyword, 
+  literal, 
+  field, 
+  static_field, 
+  class_token, 
+  interface, 
+  enum, 
+  func_decl, 
+  param, 
+  generic_param, 
+  builtin_call, 
+  func_call, 
+  static_call, 
+  annotation, 
+  annotation_attribute,
+  operator_sign, 
+  comment, 
+  doc_comment, 
+  doc_tag, 
+  doc_link, 
+  string
+}
 
 //aaa
 pub fn randomkt() {
@@ -41,7 +64,7 @@ pub fn randomkt() {
     None,
     span(keyword(), "class")
     <> " "
-    <> span(types(), "MyClass")
+    <> span(class_token(), "MyClass")
     <> " "
     <> "{"
   )
@@ -54,19 +77,19 @@ pub fn randomkt() {
       <> span(None, "immutableField")
       <> span(None, ":")
       <> " "
-      <> span(types(), "Int")
+      <> span(class_token(), "Int")
       <> " "
       <> span(operator_sign(), "=")
       <> " "
-      <> span(literals(), "42")
+      <> span(literal(), "42")
       <> " "
       <> span(operator_sign(), "+")
       <> " "
-      <> span(literals(), "32")
+      <> span(literal(), "32")
       <> " "
       <> span(static_call(), "shr")
       <> " "
-      <> span(literals(), "2")
+      <> span(literal(), "2")
     )
     <> p(
       None,
@@ -75,7 +98,7 @@ pub fn randomkt() {
       <> span(None, "mutableField")
       <> span(None, ":")
       <> " "
-      <> span(types(), "String")
+      <> span(class_token(), "String")
       <> " "
       <> span(operator_sign(), "=")
       <> " "
@@ -88,7 +111,7 @@ pub fn randomkt() {
       <> span(None, "randomColor")
       <> span(None, ":")
       <> " "
-      <> span(types(), "String")
+      <> span(class_token(), "String")
       <> " "
       <> span(operator_sign(), "=")
       <> " "
@@ -103,14 +126,14 @@ pub fn randomkt() {
       None,
       span(keyword(), "fun")
       <> " "
-      <> span(None, "myFunction")
+      <> span(func_decl(), "myFunction")
       <> span(None, "(")
-      <> span(None, "arg: ")
-      <> span(types(), "Int")
+      <> span(param(), "arg: ")
+      <> span(class_token(), "Int")
       <> span(None, ")")
       <> span(None, ":")
       <> " "
-      <> span(types(), "String")
+      <> span(class_token(), "String")
       <> " "
       <> span(None, "{")
     )
@@ -165,7 +188,7 @@ pub fn randomkt() {
         <> " "
         <> span(operator_sign(), "=")
         <> " "
-        <> span(literals(), "100")
+        <> span(literal(), "100")
       )
     )
     <> p(None, span(None, "}"))
@@ -191,25 +214,25 @@ pub fn randomkt() {
       <> " "
       <> span(None, "=")
       <> " "
-      <> span(types(), "MyClass")
+      <> span(class_token(), "MyClass")
       <> " "
       <> span(None, "()")
     )
     <> p(
       None,
-      span(builtin(), "println")
+      span(builtin_call(), "println")
       <> span(None, "(")
       <> span(None, "instance")
       <> span(None, ".")
-      <> span(call(), "myFunction")
+      <> span(func_call(), "myFunction")
       <> span(None, "()")
       <> span(None, ")")
     )
     <> p(
       None,
-      span(builtin(), "println")
+      span(builtin_call(), "println")
       <> span(None, "(")
-      <> span(literals(), "true")
+      <> span(literal(), "true")
       <> span(None, ",")
       <> " "
       <> span(None, "instance")
@@ -217,11 +240,11 @@ pub fn randomkt() {
     )
     <> p(
       None,
-      span(builtin(), "println")
+      span(builtin_call(), "println")
       <> span(None, "(")
-      <> span(None, "MyClass")
+      <> span(class_token(), "MyClass")
       <> span(None, ".")
-      <> span(None, "MY_CONSTANT")
+      <> span(static_field(False), "MY_CONSTANT")
       <> span(None, ")")
     )
   )

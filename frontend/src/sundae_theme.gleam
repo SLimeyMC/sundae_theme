@@ -5,7 +5,31 @@ import html_dsl/types/html/head.{charset, head, meta, title, style}
 import html_dsl/types/attribute.{class, id, type Attribute}
 import gleam/option.{None, type Option}
 import palette_swatch.{palette_swatch}
-import token.{indent, keyword, literals, field, types, builtin, call, static_call, annotation, operator_sign, comment, doc_comment, doc_tag, doc_link, string}
+import token.{
+  indent, 
+  keyword, 
+  literal, 
+  field, 
+  static_field, 
+  class_token, 
+  interface, 
+  enum, 
+  enum_entry,
+  func_decl, 
+  param, 
+  generic_param, 
+  builtin_call, 
+  func_call, 
+  static_call, 
+  annotation, 
+  annotation_attribute,
+  operator_sign, 
+  comment, 
+  doc_comment, 
+  doc_tag, 
+  doc_link, 
+  string
+}
 
 
 pub fn main() {
@@ -70,11 +94,27 @@ pub fn main() {
        id(None, "specification"),
        h1(None, "Specification")
       <> div(
-        class(None, "two-column"),
+        class(None, ""), // Make this into two column or soemthing
         html.section(
           class(None, "wrappable"),
-          specification_card(keyword, "keyword", "For keyword including modifier to stand out")
-          <> specification_card(literals, "literal", "Used to display literal like number and boolean")
+          specification_card(keyword(), "keyword", "For keyword including modifier to stand out")
+          <> specification_card(literal(), "literal", "Used to display literal like number and boolean")
+          <> specification_card(field(False), "instance field", "Used to display literal like number and boolean")
+          <> specification_card(static_field(False), "static field", "Used to display literal like number and boolean")
+          <> specification_card(class_token(), "class", "Used to display literal like number and boolean")
+          <> specification_card(interface(), "interface", "Used to display literal like number and boolean")
+          <> specification_card(enum(), "enum", "Used to display literal like number and boolean")
+          <> specification_card(enum_entry(), "enum entry", "Used to display literal like number and boolean")
+          <> specification_card(func_decl(), "function declaration", "Used to display literal like number and boolean")
+          <> specification_card(param(), "parameter", "Used to display literal like number and boolean")
+          <> specification_card(generic_param(), "generic parameter", "Used to display literal like number and boolean")
+          <> specification_card(builtin_call(), "builtin/package call", "Used to display literal like number and boolean")
+          <> specification_card(func_call(), "function call", "Used to display literal like number and boolean")
+          <> specification_card(static_call(), "static/constructor call", "Used to display literal like number and boolean")
+          <> specification_card(annotation(), "annotation", "Used to display literal like number and boolean")
+          <> specification_card(annotation_attribute(), "annotation attribute", "Used to display literal like number and boolean")
+          <> specification_card(operator_sign(), "operator and braces", "Used to display literal like number and boolean")
+          <> specification_card(comment(), "comment", "Used to display literal like number and boolean")
         )
       )
      )
@@ -84,11 +124,11 @@ pub fn main() {
   |> html.html_to_string()
 }
 
-fn specification_card(attr: fn() -> Option(Attribute), name: String, description: String) {
+fn specification_card(attr: Option(Attribute), name: String, description: String) {
   html.details(
     class(None, "specification-card"), 
     html.summary(
-      attr(),
+      attr,
       name
     )
     <> html.span(None, description)
