@@ -1,6 +1,7 @@
 import html_dsl/types/html.{div, br, p, span}
 import html_dsl/types/attribute.{class}
 import gleam/option.{None}
+import token.{indent, keyword, literals, field, types, builtin, call, static_call, annotation, operator_sign, comment, doc_comment, doc_tag, doc_link, string}
 
 //aaa
 pub fn randomkt() {
@@ -21,9 +22,9 @@ pub fn randomkt() {
     <> span(comment(), "// Some import stuff")
   )
   <> br()
-  <> details(
-    "class=\"doc-comment token\"",
-    summary("", "...")
+  <> html.details(
+    class(None, "doc-comment token"),
+    html.summary(None, "...")
     <> p(None, "/**")
     <> p(None, "&nbsp;* Doc comment here for 'MyClass'")
     <> p(
@@ -225,74 +226,4 @@ pub fn randomkt() {
     )
   )
   <> p(None, span(None, "}"))
-}
-
-fn details(attr: String, inner: String) {
-  "<details " <> attr <> ">" <> inner <> "</details>"
-}
-
-fn summary(attr: String, inner: String) {
-  "<summary " <> attr <> ">" <> inner <> "</summary>"
-}
-
-
-
-fn indent() {
-  class(None, "indent")
-}
-
-fn keyword() {
-    class(None, "keyword token")
-}
-
-fn literals() {
-    class(None, "literals token")
-}
-
-fn field() {
-    class(None, "field token")
-}
-
-fn types() {
-    class(None, "types token")
-}
-
-fn builtin() {
-    class(None, "builtin token")
-}
-
-fn call() {
-    class(None, "call token")
-}
-
-fn static_call() {
-    class(None, "static-call token")
-}
-
-fn annotation() {
-    class(None, "annotation token")
-}
-
-fn operator_sign() {
-    class(None, "operator-sign token")
-}
-
-fn comment() {
-    class(None, "comment token")
-}
-
-fn doc_comment() {
-    class(None, "doc-comment token")
-}
-
-fn doc_tag() {
-  class(None, "doc-comment doc-tag token")
-}
-
-fn doc_link() {
-    class(None, "doc-comment doc-link token")
-}
-
-fn string() {
-    class(None, "string token")
 }

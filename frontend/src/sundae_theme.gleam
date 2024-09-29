@@ -2,9 +2,10 @@ import gleam/io
 import randomkt.{randomkt}
 import html_dsl/types/html.{body, h1, html, nav, span, div, br}
 import html_dsl/types/html/head.{charset, head, meta, title, style}
-import html_dsl/types/attribute.{class, id}
-import gleam/option.{None}
+import html_dsl/types/attribute.{class, id, type Attribute}
+import gleam/option.{None, type Option}
 import palette_swatch.{palette_swatch}
+import token.{indent, keyword, literals, field, types, builtin, call, static_call, annotation, operator_sign, comment, doc_comment, doc_tag, doc_link, string}
 
 
 pub fn main() {
@@ -71,8 +72,9 @@ pub fn main() {
       <> div(
         class(None, "two-column"),
         html.section(
-          None,
-          ""
+          class(None, "wrappable"),
+          specification_card(keyword, "keyword", "For keyword including modifier to stand out")
+          <> specification_card(literals, "literal", "Used to display literal like number and boolean")
         )
       )
      )
@@ -80,4 +82,15 @@ pub fn main() {
   )
   |> html.force()
   |> html.html_to_string()
+}
+
+fn specification_card(attr: fn() -> Option(Attribute), name: String, description: String) {
+  html.details(
+    class(None, "specification-card"), 
+    html.summary(
+      attr(),
+      name
+    )
+    <> html.span(None, description)
+  )
 }
