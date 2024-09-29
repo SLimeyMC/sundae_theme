@@ -147,7 +147,7 @@ h1 {
     line-height: 0.1em;
     font-style: normal;
     font-variation-settings:
-            "BNCE" 45,
+            "BNCE" 100,
             "INFM" 100,
             "SPAC" 0;
     margin-top: 1.2em;
@@ -161,6 +161,16 @@ h1 {
             0px 2px 3px 0px rgba(0, 0, 0, 0.05);
 }
 
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.wrappable {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .codeground {
     padding: 1em;
     background-color: var(--frosting-white);
@@ -172,6 +182,11 @@ h1 {
 /* body {
     font-family: Argon;
 } */
+
+.codeground > h1 {
+    text-align: left;
+    margin-top: 0.3em;
+}
 
 
 .codeground > hr {
@@ -283,11 +298,6 @@ h1 {
     margin: -1em;
 }
 
-.two-column {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
 .palette {
     display: grid;
     place-self: center;
@@ -324,6 +334,33 @@ h1 {
     transform: scale(0.9);
 }
 
+.specification-card {
+    display: inline;
+}
+
+.specification-card > summary {
+    display: inline;
+    font-family: Argon;
+    padding: 1em;
+    margin-right: 1em;
+    user-select: none;
+    transition: 0.5s;
+    font-variation-settings: "slnt" 0;
+}
+
+.specification-card > summary:hover {
+    transform: scale(1.1);
+}
+
+.specification-card[open] > summary {
+    letter-spacing: 0.05em;
+    font-style: oblique;
+    font-variation-settings: "slnt" -11;
+}
+
+.specification-card > :not(:first-child) {
+    /* Add some margin to the next line cus yes */
+}
 
 
 

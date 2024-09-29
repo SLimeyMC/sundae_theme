@@ -5,24 +5,28 @@ import gleam/option.{None}
 pub fn palette_swatch() {
     div(
        class(None, "palette"),
-       html.button(class(None, "truffle-black palette-card popup"), span(None, "#28282e"))
-       <> html.button(class(None, "plum-purple palette-card popup"), span(None, "#6c5671"))
-       <> html.button(class(None, "almond-beige palette-card popup"), span(None, "#d9c8bf"))
-       <> html.button(class(None, "berry-red palette-card popup"), span(None, "#f98284"))
+       palette_card("truffle-black ", "#28282e")
+       <> palette_card("plum-purple ", "#6c5671")
+       <> palette_card("almond-beige ", "#d9c8bf")
+       <> palette_card("berry-red ", "#f98284")
 
-       <> html.button(class(None, "frost-lavender palette-card popup"), span(None, "#b0a9e4"))
-       <> html.button(class(None, "glacier-capri palette-card popup"), span(None, "#accce4"))
-       <> html.button(class(None, "coconut-aqua palette-card popup"), span(None, "#b3e3da"))
-       <> html.button(class(None, "bubblegum-pink palette-card popup"), span(None, "#feaae4"))
+       <> palette_card("frost-lavender ", "#b0a9e4")
+       <> palette_card("glacier-capri ", "#accce4")
+       <> palette_card("coconut-aqua ", "#b3e3da")
+       <> palette_card("bubblegum-pink ", "#feaae4")
 
-       <> html.button(class(None, "minty-blue palette-card popup"), span(None, "#87a889"))
-       <> html.button(class(None, "matcha-green palette-card popup"), span(None, "#b0eb93"))
-       <> html.button(class(None, "sherbet-lime palette-card popup"), span(None, "#e9f59d"))
-       <> html.button(class(None, "milk-cream palette-card popup"), span(None, "#ffe6c6"))
+       <> palette_card("minty-blue ", "#87a889")
+       <> palette_card("matcha-green ", "#b0eb93")
+       <> palette_card("sherbet-lime ", "#e9f59d")
+       <> palette_card("milk-cream ", "#ffe6c6")
 
-       <> html.button(class(None, "cocoa-brown palette-card popup"), span(None, "#dea38b"))
-       <> html.button(class(None, "mango-orange palette-card popup"), span(None, "#ffc384"))
-       <> html.button(class(None, "honey-yellow palette-card popup"), span(None, "#fff7a0"))
-       <> html.button(class(None, "frosting-white palette-card popup"), span(None, "#fff7e4"))
+       <> palette_card("cocoa-brown ", "#dea38b")
+       <> palette_card("mango-orange ", "#ffc384")
+       <> palette_card("honey-yellow ", "#fff7a0")
+       <> palette_card("frosting-white", "#fff7e4")
     )
+}
+
+pub fn palette_card(name: String, hex: String) {
+    html.button(class(None, name <> "palette-card popup"), span(None, hex))
 }
