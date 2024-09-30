@@ -1,0 +1,43 @@
+name: Test Frontend project
+
+on:
+  push:
+    branches:
+      - '**'  # All branches
+    paths:
+      - 'frontend/**'
+  pull_request:
+    paths:
+      - 'frontend/**'
+
+jobs:
+  test-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Install Gleam, Erlang/OTP for frontend
+      - name: Setup Gleam environment
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: "26.0.2"
+          gleam-version: "1.5.0"
+          rebar3-version: "3"
+
+      # Install Bun for frontend
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      # Download Gleam dependencies
+      - name: Download Gleam dependencies
+        run: gleam deps download
+
+      # Install frontend dependencies and run tests
+      - name: Install Bun Dependencies
+        working-directory: ./frontend
+        run: bun install
+
+      - name: Run Frontend Tests
+        working-directory: ./frontend
+        run: bun run test
