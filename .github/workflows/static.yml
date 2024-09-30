@@ -38,6 +38,8 @@ jobs:
         uses: oven-sh/setup-bun@v2
       - name: Setup Farm
         run: bun add -D @farmfe/cli @farmfe/core
+      - name: Setup All Plugin
+        run: bun i vite-gleam htmx.org
       - name: Run Bun
         working-directory: ./frontend
         run: bun run build
