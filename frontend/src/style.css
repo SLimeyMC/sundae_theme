@@ -334,18 +334,25 @@ h1 {
     transform: scale(0.9);
 }
 
+.wrappable:has(> .specification-card) {
+    justify-content: space-around;
+}
+
 .specification-card {
-    display: inline;
+    display: contents;
 }
 
 .specification-card > summary {
-    display: inline;
-    font-family: Argon;
     padding: 1em;
-    margin-right: 1em;
+    margin: 1em 0.3em;
     user-select: none;
     transition: 0.5s;
     font-variation-settings: "slnt" 0;
+}
+
+:where(details.specification-card) > summary {
+    list-style-type: disc;
+    font-family: Argon;
 }
 
 .specification-card > summary:hover {
@@ -358,9 +365,23 @@ h1 {
     font-variation-settings: "slnt" -11;
 }
 
-.specification-card > :not(:first-child) {
-    /* Add some margin to the next line cus yes */
+.specification-card > span {
+    overflow: hidden;
+    align-content: center;
+    white-space: nowrap;
 }
+
+.specification-card[open]>span {
+    animation: text-growth 1s forwards;
+}
+
+/* Cant work with *-contnet and auto for soem reason */
+@keyframes text-growth {
+    from { width: none; }
+    to { width: max-content; }
+}
+
+
 
 
 
@@ -446,21 +467,59 @@ h1 {
     border-radius: 4px;
 }
 
-.types {
+.class {
     background: var(--mango-orange);
     color: var(--frosting-white);
     font-style: italic;
     border-radius: 8px 4px 8px 4px;
 }
 
-.builtin {
+.interface {
+    background: var(--mango-orange);
+    color: var(--plum-purple);
+    font-style: italic;
+    border-radius: 8px 4px 8px 4px;
+}
+
+.enum {
+    background: var(--honey-yellow);
+    color: var(--plum-purple);
+    border-radius: 4px;
+}
+
+.enum-entry {
+    background: var(--cocoa-brown);
+    color: var(--frosting-white);
+    border-radius: 4px;
+}
+
+.func-decl {
+    background: var(--sherbet-lime);
+    color: var(--plum-purple);
+    font-weight: 800;
+    border-radius: 4px;
+}
+
+.param {
+    background: var(--cocoa-brown);
+    color: var(--truffle-black);
+    border-radius: 4px;
+}
+
+.generic-param {
+    background: var(--frost-lavender);
+    color: var(--truffle-black);
+    border-radius: 4px;
+}
+
+.builtin-call {
     background: var(--glacier-capri);
     color: var(--frosting-white);
     font-weight: 800;
     border-radius: 4px;
 }
 
-.call {
+.func-call {
     background: var(--sherbet-lime);
     color: var(--plum-purple);
     border-radius: 4px;
@@ -473,10 +532,20 @@ h1 {
     border-radius: 4px;
 }
 
-.literals {
+.literal {
     background: var(--frost-lavender);
     color: var(--frosting-white);
     border-radius: 4px;
+}
+
+.annotation {
+    background: var(--minty-blue);
+    color: var(--truffle-black);
+    border-radius: 4px;
+}
+
+.annotation-attribute {
+    color: var(--bubblegum-pink);
 }
 
 .string {
