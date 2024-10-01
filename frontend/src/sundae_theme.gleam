@@ -97,24 +97,78 @@ pub fn main() {
         class(None, ""), // Make this into two column or soemthing
         html.section(
           class(None, "wrappable"),
-          specification_card(keyword(), "keyword", "For keyword including modifier to stand out")
-          <> specification_card(literal(), "literal", "Used to display literal like number and boolean")
-          <> specification_card(field(False), "instance field", "Used to display literal like number and boolean")
-          <> specification_card(static_field(False), "static field", "Used to display literal like number and boolean")
-          <> specification_card(class_token(), "class", "Used to display literal like number and boolean")
-          <> specification_card(interface(), "interface", "Used to display literal like number and boolean")
-          <> specification_card(enum(), "enum", "Used to display literal like number and boolean")
-          <> specification_card(enum_entry(), "enum entry", "Used to display literal like number and boolean")
-          <> specification_card(func_decl(), "function declaration", "Used to display literal like number and boolean")
-          <> specification_card(param(), "parameter", "Used to display literal like number and boolean")
-          <> specification_card(generic_param(), "generic parameter", "Used to display literal like number and boolean")
-          <> specification_card(builtin_call(), "builtin/package call", "Used to display literal like number and boolean")
-          <> specification_card(func_call(), "function call", "Used to display literal like number and boolean")
-          <> specification_card(static_call(), "static/constructor call", "Used to display literal like number and boolean")
-          <> specification_card(annotation(), "annotation", "Used to display literal like number and boolean")
-          <> specification_card(annotation_attribute(), "annotation attribute", "Used to display literal like number and boolean")
-          <> specification_card(operator_sign(), "operator and braces", "Used to display literal like number and boolean")
-          <> specification_card(comment(), "comment", "Used to display literal like number and boolean")
+          specification_card(
+            keyword(), "keyword", 
+            "For keyword including modifier to stand out from other"
+          )
+          <> specification_card(
+            literal(), "literal", 
+            "For number and boolean, use much more softer color to not be overly prominent"
+          )
+          <> specification_card(
+            field(False), "instance field", 
+            "Most field of class/struct/types, not too distracting"
+          )
+          <> specification_card(
+            static_field(False), "static field", 
+            "For field that is static (doesnt require initialization), bolded to differentiate to generic field"
+          )
+          <> specification_card(
+            class_token(), "class", 
+            "For class, struct and types, less aggresive compared to keyword but still stand out"
+          )
+          <> specification_card(
+            interface(), "interface", 
+            "For any contract defining class, even less aggresive than class because of their specialized role"
+          )
+          <> specification_card(
+            enum(), "enum", 
+            "Used to display Enum, Union and DTO differently than class"
+          )
+          <> specification_card(
+            enum_entry(), "enum entry", 
+            "Used to any of it's entry, have similar color to parameter"
+          )
+          <> specification_card(
+            func_decl(), "function declaration", 
+            "Declare function/method, set to bold to state that it's declaration"
+          )
+          <> specification_card(
+            param(), "parameter", 
+            "Parameter and named arguments, stand out while related to it's method"
+          )
+          <> specification_card(
+            generic_param(), "generic parameter", 
+            "Generic parameter and closure variable closely related to literal"
+          )
+          <> specification_card(
+            builtin_call(), "builtin/package call", 
+            "Use different color scheme class method to standout"
+          )
+          <> specification_card(
+            func_call(), "function call", 
+            "Unlike other call this is in the style of normal because of how abundance it is"
+            )
+          <> specification_card(
+            static_call(), "static/constructor call", 
+            "To seperate from other function"
+          )
+          <> specification_card(
+            annotation(), "annotation", 
+            "Use green to match with other theme really"
+          )
+          <> specification_card(
+            annotation_attribute(), "annotation attribute", 
+            "Doesnt have background so it doesnt stick out too much (although debating this over parameter)"
+          )
+          <> specification_card(  
+            operator_sign(), "operator and braces", 
+            "Display operator and braces, I would like to make operator seperate but not for now"
+          )
+          <> specification_card(
+            comment(), "comment", 
+            "Have different font than the rest, in more handwritten style to be more friendly"
+          )
         )
       )
      )

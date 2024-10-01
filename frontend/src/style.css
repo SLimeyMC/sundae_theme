@@ -371,17 +371,6 @@ h1 {
     white-space: nowrap;
 }
 
-.specification-card[open]>span {
-    animation: text-growth 1s forwards;
-}
-
-/* Cant work with *-contnet and auto for soem reason */
-@keyframes text-growth {
-    from { width: none; }
-    to { width: max-content; }
-}
-
-
 
 
 
