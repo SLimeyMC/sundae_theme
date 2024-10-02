@@ -1,5 +1,6 @@
 import gleam/io
 import randomkt.{randomkt}
+import utils.{summary, details}
 import html_dsl/types/html.{body, h1, html, nav, span, div, br}
 import html_dsl/types/html/head.{charset, head, meta, title, style}
 import html_dsl/types/attribute.{class, id, type Attribute}
@@ -88,6 +89,10 @@ pub fn main() {
        <> div(
          class(None, "two-column"),
          palette_swatch()
+         <> div(
+          attribute.add(None, "name", "palette-description"),
+          ""
+         )
       )
      )
      <> html.article(
@@ -179,9 +184,9 @@ pub fn main() {
 }
 
 fn specification_card(attr: Option(Attribute), name: String, description: String) {
-  html.details(
+  details(
     class(None, "specification-card"), 
-    html.summary(
+    summary(
       attr,
       name
     )

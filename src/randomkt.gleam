@@ -1,3 +1,4 @@
+import utils.{summary, details}
 import html_dsl/types/html.{div, br, p, span}
 import html_dsl/types/attribute.{class}
 import gleam/option.{None}
@@ -45,9 +46,9 @@ pub fn randomkt() {
     <> span(comment(), "// Some import stuff")
   )
   <> br()
-  <> html.details(
+  <> details(
     class(None, "doc-comment token"),
-    html.summary(None, "...")
+    summary(None, "...")
     <> p(None, "/**")
     <> p(None, "&nbsp;* Doc comment here for 'MyClass'")
     <> p(
