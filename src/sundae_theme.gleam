@@ -101,7 +101,7 @@ pub fn main() {
       <> div(
         class(None, ""), // Make this into two column or soemthing
         html.section(
-          class(None, "wrappable"),
+          class(None, "wrappable flex-wrap-anim"),
           specification_card(
             keyword(), "keyword", 
             "For keyword including modifier to stand out from other"
