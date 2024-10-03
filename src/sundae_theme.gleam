@@ -43,7 +43,7 @@ pub fn main() {
      |> meta("description", "A Gleam program that generates HTML.")
      |> style("src/style.css")
      |> head.link("preconnect", "https://fonts.googleapis.com", None)
-     |> head.link("preconnect", "https://fonts.gstatic.com", None)
+     |> head.link("preconnect", "https://fonts.gstatic.com", attribute.add(None, "crossorigin", ""))
      |> style("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap")
      |> head.end(),
 
