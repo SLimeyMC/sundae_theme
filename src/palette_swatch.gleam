@@ -30,15 +30,9 @@ pub fn palette_swatch() {
 }
 
 pub fn palette_card(name: String, hex: String, number: Int) {
-    html.button(class(None, name <> " palette-card popup") |> attribute.add("onclick", "displayPaletteDesc(" <> int.to_string(number) <> ");") |> attribute.add("type", "button"), span(None, hex))
-}
-
-pub fn palette_description(ordinal: Int) {
-    case ordinal {
-        0 -> 
-            html.h3(None, "Truffle Black")
-            <> html.h4(None, "Dark and bold")
-            <> html.p(None, "This color is made out of the void, which give way for cradle's of existance")
-        _ -> "hihi"
-    }
+    utils.details(
+        class(None, name <> " palette-card popup") |> attribute.add("type", "button"), 
+        utils.summary(None, hex)
+        <> html.span(None, name)
+    )
 }

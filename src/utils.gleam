@@ -1,6 +1,12 @@
 import html_dsl/types/attribute.{type Attribute, attribute_to_string}
 import gleam/option.{type Option}
 
+pub fn bold(
+  inner inner: String,
+) -> String {
+  "<b>" <> inner <> "</b>"
+}
+
 pub fn summary(
   attributes attributes: Option(Attribute),
   inner inner: String,

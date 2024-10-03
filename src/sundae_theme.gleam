@@ -86,14 +86,7 @@ pub fn main() {
      <> html.article(
        id(None, "palette"),
        h1(None, "Palette")
-       <> div(
-         class(None, "two-column"),
-         palette_swatch()
-         <> div(
-          attribute.add(None, "name", "palette-description"),
-          ""
-         )
-      )
+       <> palette_swatch()
      )
      <> html.article(
        id(None, "specification"),
