@@ -1,17 +1,21 @@
 {
-  "name": "sundae-theme",
+  "name": "sundae_theme",
+  "version": "1.0.0",
   "type": "module",
-  "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "farm",
+    "start": "farm",
+    "build": "farm build",
+    "preview": "farm preview",
+    "clean": "farm clean"
+  },
+  "devDependencies": {
+    "@farmfe/cli": "^1.0.2",
+    "@farmfe/core": "^1.3.0",
+    "typescript": "^5.4.3"
   },
   "dependencies": {
-    "astro": "^4.16.2",
-    "@astrojs/check": "^0.9.4",
-    "typescript": "^5.6.3"
+    "alpine": "^0.2.1",
+    "vite-gleam": "^0.4.3"
   }
 }
