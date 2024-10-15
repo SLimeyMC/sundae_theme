@@ -15,7 +15,7 @@
     "typescript": "^5.4.3"
   },
   "dependencies": {
-    "htmx": "^0.0.2",
+    "alpine": "^0.2.1",
     "vite-gleam": "^0.4.3"
   }
 }

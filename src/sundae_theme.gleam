@@ -1,5 +1,6 @@
 import gleam/io
 import randomkt.{randomkt}
+import utils.{summary, details}
 import html_dsl/types/html.{body, h1, html, nav, span, div, br}
 import html_dsl/types/html/head.{charset, head, meta, title, style}
 import html_dsl/types/attribute.{class, id, type Attribute}
@@ -42,7 +43,7 @@ pub fn main() {
      |> meta("description", "A Gleam program that generates HTML.")
      |> style("src/style.css")
      |> head.link("preconnect", "https://fonts.googleapis.com", None)
-     |> head.link("preconnect", "https://fonts.gstatic.com", None)
+     |> head.link("preconnect", "https://fonts.gstatic.com", attribute.add(None, "crossorigin", ""))
      |> style("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap")
      |> head.end(),
 
@@ -85,10 +86,7 @@ pub fn main() {
      <> html.article(
        id(None, "palette"),
        h1(None, "Palette")
-       <> div(
-         class(None, "two-column"),
-         palette_swatch()
-      )
+       <> palette_swatch()
      )
      <> html.article(
        id(None, "specification"),
@@ -96,7 +94,7 @@ pub fn main() {
       <> div(
         class(None, ""), // Make this into two column or soemthing
         html.section(
-          class(None, "wrappable"),
+          class(None, "wrappable flex-wrap-anim"),
           specification_card(
             keyword(), "keyword", 
             "For keyword including modifier to stand out from other"
@@ -179,9 +177,9 @@ pub fn main() {
 }
 
 fn specification_card(attr: Option(Attribute), name: String, description: String) {
-  html.details(
+  details(
     class(None, "specification-card"), 
-    html.summary(
+    summary(
       attr,
       name
     )
