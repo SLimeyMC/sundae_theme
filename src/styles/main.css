@@ -1,0 +1,169 @@
+@font-face {
+    font-family: "Argon";
+    font-size: 13px;
+    src: url(../public/argon.ttf);
+}
+
+@font-face {
+    font-family: "Radon";
+    font-size: 13px;
+    src: url(../public/radon.ttf);
+}
+
+@font-face {
+    font-family: "Xenon";
+    font-size: 13px;
+    src: url(../public/xenon.ttf);
+}
+
+/* Maybe move this to seperate file for each theme */
+@property --truffle-black {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #28282e;
+}
+
+@property --plum-purple {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #6c5671;
+}
+
+@property --almond-beige {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #d9c8bf;
+}
+
+@property --milk-cream {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #ffe6c6;
+}
+
+@property --frosting-white {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #fff7e4;
+}
+
+@property --honey-yellow {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #fff7a0;
+}
+
+@property --mango-orange {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #ffc384;
+}
+
+@property --cocoa-brown {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #dea38b;
+}
+
+@property --sherbet-lime {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #e9f59d;
+}
+
+@property --matcha-green {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #b0eb93;
+}
+
+@property --minty-blue {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #87a889;
+}
+
+@property --bubblegum-pink {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #feaae4;
+}
+
+@property --coconut-aqua {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #b3e3da;
+}
+
+@property --glacier-capri {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #accce4;
+}
+
+@property --frost-lavender {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #b0a9e4;
+}
+
+@property --berry-red {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #f98284;
+}
+
+body {
+    position : fixed;
+    margin: 0;
+    width: 100vw;
+    background-color: var(--milk-cream);
+    font-family: "Inter", sans-serif;
+}
+
+a {
+}
+
+h1 {
+    font-family: "Shantell Sans", cursive;
+    font-weight: 800;
+    font-size: 4em;
+    line-height: 0.1em;
+    font-style: normal;
+    font-variation-settings:
+            "BNCE" 0,
+            "INFM" 0,
+            "SPAC" 0;
+    margin-top: 1.2em;
+    text-align: center;
+}
+
+h3 {
+    font-size: xx-large;
+    line-height: 0;
+}
+
+h3, b {
+    font-family: "Shantell Sans", cursive;
+    font-variation-settings:
+            "BNCE" 100,
+            "INFM" 100,
+            "SPAC" 100;
+}
+
+.popup {
+    box-shadow:
+            inset 0px 0px 2px 2px rgba(0, 0, 0, 0.09),
+            inset 0px -8px 2px 2px rgba(0, 0, 0, 0.07),
+            0px 2px 3px 0px rgba(0, 0, 0, 0.05);
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.wrappable {
+    display: flex;
+    flex-wrap: wrap;
+}

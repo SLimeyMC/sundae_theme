@@ -1,0 +1,139 @@
+---
+
+---
+<section>
+    <h1>
+        <span style="--delay: 0">S</span><span style="--delay: 1">u</span><span style="--delay: 2">n</span><span style="--delay: 3">d</span><span style="--delay: 4">a</span><span style="--delay: 5">e</span>
+    </h1>
+    <h2>
+        A minimally flavored theme to satiate own hunger!
+    </h2>
+    <p>available in vanilla flavor (<em>for now!</em>)</p>
+</section>
+<style>
+    section {
+        display: grid;
+        place-content: center;
+        place-items: center;
+        height: 90svh;
+        margin: auto
+    }
+
+    h1 {
+        --bounce: 0;
+		--informality: 0;
+        font-size: 10em;
+        line-height: 0;
+        margin: .3em;
+        transform: skewY(-7deg);
+        text-shadow: 2px 2px 0 var(--truffle-black);
+
+		font-variation-settings:
+				"BNCE" var(--bounce),
+				"INFM" var(--informality),
+				"SPAC" 0;
+
+        animation: wavy-text 1s alternate infinite linear;
+
+        counter-reset: delay;
+    }
+
+    h1:hover {
+		--informality: 100;
+    }
+
+    h2 {
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+        color: var(--truffle-black);
+        line-height: 0;
+        z-index: 1;
+        text-shadow:
+                .05em .05em 0 var(--milk-cream),
+                -.05em .05em 0 var(--milk-cream),
+                .05em -.05em 0 var(--milk-cream),
+                -.05em -.05em 0 var(--milk-cream);
+    }
+
+    p {
+        font-optical-sizing: auto;
+        line-height: 0;
+        color: var(--plum-purple);
+        margin: -1em;
+    }
+
+    span {
+        animation: moving-text-color 10s alternate infinite step-end;
+        transition: 1s;
+        padding: 0;
+        transform: translate(0);
+        animation-delay: calc(var(--delay) * -1s);
+
+        counter-increment: delay;
+    }
+
+    span:first-child {
+        font-size: 1.5em;
+    }
+
+    :hover > span {
+        font-size: 0.9em;
+    }
+
+    :hover > span:hover {
+        padding: 0.1em;
+        font-size: 1.3em;
+    }
+
+    :hover > span:hover + *,
+    :hover > span:has(+ :hover) {
+        padding: 0.075em;
+
+    }
+
+    :hover > span:not(:hover) {
+        --default-color: var(--frosting-white);
+    }
+
+    @keyframes wavy-text {
+        from { --bounce: -25 }
+        to { --bounce: 25 }
+	}
+
+
+    @keyframes moving-text-color {
+        0% {
+            color: var(--default-color, var(--honey-yellow));
+        }
+        11% {
+            color: var(--default-color, var(--mango-orange));
+        }
+        22% {
+            color: var(--default-color, var(--cocoa-brown));
+        }
+        33% {
+            color: var(--default-color, var(--minty-blue));
+        }
+        44% {
+            color: var(--default-color, var(--matcha-green));
+        }
+        55% {
+            color: var(--default-color, var(--sherbet-lime));
+        }
+        66% {
+            color: var(--default-color, var(--coconut-aqua));
+        }
+        77% {
+            color: var(--default-color, var(--glacier-capri));
+        }
+        88% {
+            color: var(--default-color, var(--frost-lavender));
+        }
+        100% {
+            color: var(--default-color, var(--bubblegum-pink));
+        }
+    }
+
+
+</style>
