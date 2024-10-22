@@ -6,7 +6,7 @@
 <section class="hero">
     <h1>
         {'Sundae'.split('').map((char, index) => (
-                <span style={`--delay: ${index * 0.1}s`}>{char}</span>
+                <span style={`--delay: ${index * 1}`}>{char}</span>
         ))}
     </h1>
     <h2>A minimally flavored theme to satiate your own hunger</h2>
@@ -14,6 +14,12 @@
 </section>
 
 <style>
+    @property --informality {
+        syntax: "<integer>";
+        inherits: false;
+        initial-value: 0;
+    }
+
     section {
         display: grid;
         place-content: center;
@@ -22,6 +28,9 @@
     }
 
     h1 {
+        --bouncy: -10;
+        --informality: 0;
+
         font-size: 10em;
         line-height: 0;
         margin: .3em;
@@ -29,6 +38,22 @@
         text-shadow: 2px 2px 0 var(--truffle-black);
 
         counter-reset: delay;
+
+        animation: wavy-text 2s infinite alternate linear;
+
+        transition: 2s;
+
+        font-variation-settings:
+                "BNCE" var(--bouncy),
+                "INFM" 0;
+    }
+
+    h1:hover {
+        --informality: 100;
+
+        font-variation-settings:
+                "BNCE" var(--bouncy),
+                "INFM" 100;
     }
 
     h1 > span:first-child {
@@ -62,6 +87,18 @@
 
     h1:hover > span:not(:hover) {
         --default-color: var(--frosting-white);
+    }
+
+    @keyframes wavy-text {
+        from {
+            --bouncy: -10;
+        }
+        50% {
+            --bouncy: 10;
+        }
+        to {
+            --bouncy: -10;
+        }
     }
 
 
