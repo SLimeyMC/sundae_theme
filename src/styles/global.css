@@ -1,19 +1,25 @@
 @font-face {
     font-family: "Argon";
     font-size: 13px;
-    src: url(../public/argon.ttf);
+    src: url(../../public/argon.ttf);
 }
 
 @font-face {
     font-family: "Radon";
     font-size: 13px;
-    src: url(../public/radon.ttf);
+    src: url(../../public/radon.ttf);
 }
 
 @font-face {
     font-family: "Xenon";
     font-size: 13px;
-    src: url(../public/xenon.ttf);
+    src: url(../../public/xenon.ttf);
+}
+
+@font-face {
+    font-family: "JetBrainsMono NFP";
+    font-size: 13px;
+    src: url(../../public/JetbrainsMonoNFP.ttf);
 }
 
 /* Maybe move this to seperate file for each theme */
