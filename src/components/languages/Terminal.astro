@@ -1,77 +1,39 @@
 ---
 const code = `
-<p><span class="prompt"><span class="username">SlimeyAr</span><span class="separator">:</span><span class="directory">.sundae_theme</span> <span class="git-branch">git(butler/workspace)</span></span></p>
-<p><span class="prompt">user  </span><span class="command">bun run dev</span></p>
-<p><span class="prompt">$ </span><span class="command">astro dev</span></p>
-<p><span class="timestamp">18:10:15</span> <span class="log-type">[vite]</span> Generated 2ms</p>
-<p><span class="timestamp">18:10:15</span> <span class="log-type">[vite]</span> Port 4321 is in use, trying another one...</p>
-<p><span class="astro-ready">astro</span> <span class="version">v4.14.4</span> ready in 283 ms</p>
-<p><span class="local">┃ Local    http://localhost:4322/</span></p>
-<p><span class="network">┃ Network  use --host to expose</span></p>
-<p><span class="timestamp">18:10:15</span> <span class="watching">watching for file changes...</span></p>
-<p><span class="cursor">█</span></p>`;
+`;
 ---
 
-<code set:html={code} />
+<div class="terminal" >
+    <code>
+	    <p>
+		    <span class="tc"></span><span class="bc tpp"> <span class="tw"></span> SlimeyAr:</span><span class="tc bp"></span><span class="bp tpp"> .sundae_theme</span><span class="tp br"></span><span class="br tpp">  gitbutler/workspace</span><span class="tr "></span>
+	    </p>
+        <p><span class="tw">user </span> <span class="ty">bun</span> run dev</p>
+	    <p><span class="tpp">$ </span>astro dev</p>
+	    <p>22:08:06 <span class="tca">[vite]</span><span class="tw"> Generated</span> 2ms</p>
+        <br>
+	    <p>&nbsp; <span class="tw bg">&nbsp;astro </span>&nbsp;<span class="tg">v4.14.4</span> ready in <span class="tw">806</span> ms</p>
+	    <p>┃ <span class="tw">Local</span> <u class="tc">http://localhost:4322/</u></p>
+	    <p>┃ <span class="tw">Network</span>  use --host to expose</p>
+        <br>
+	    <p>22:08:06 <span class="tg">watching for file changes...</span></p>
+	    <p><span class="cursor tw">█</span></p>
+    </code>
+</div>
 
 <style>
-	.prompt {
-		color: var(--frosting-white);
-	}
+	.terminal {
+        padding: 1em;
+        border-radius: 24px;
+		background-color : var(--truffle-black);
+        color: var(--almond-beige);
+    }
 
-	.username {
-		background-color: var(--plum-purple);
-		padding: 2px 5px;
-	}
-
-	.separator {
-		background-color: var(--mango-orange);
-		padding: 2px 5px;
-	}
-
-	.directory {
-		background-color: var(--minty-blue);
-		padding: 2px 5px;
-	}
-
-	.git-branch {
-		background-color: var(--honey-yellow);
-		color: var(--truffle-black);
-		padding: 2px 5px;
-	}
-
-	.command {
-		color: var(--frosting-white);
-	}
-
-	.timestamp {
-		color: var(--glacier-capri);
-	}
-
-	.log-type {
-		color: var(--bubblegum-pink);
-	}
-
-	.astro-ready {
-		background-color: var(--sherbet-lime);
-		color: var(--truffle-black);
-		padding: 2px 5px;
-	}
-
-	.version {
-		color: var(--frost-lavender);
-	}
-
-	.local, .network {
-		color: var(--coconut-aqua);
-	}
-
-	.watching {
-		color: var(--matcha-green);
-	}
+    code {
+		font-family: "JetBrainsMono NFP", monospace;
+    }
 
 	.cursor {
-		color: var(--frosting-white);
 		animation: blink 1s step-end infinite;
 	}
 
@@ -81,9 +43,55 @@ const code = `
 		}
 	}
 
-	/* Terminal card specific styles */
-	.language-card:first-child {
-		background-color: var(--truffle-black);
-		color: var(--frosting-white);
-	}
+    .tc {
+        color: var(--glacier-capri);
+    }
+
+    .bc {
+		background: var(--glacier-capri);
+    }
+
+    .tw {
+        color: var(--frosting-white)
+    }
+
+    .bp {
+        background: var(--bubblegum-pink);
+    }
+
+    .tp {
+        color: var(--bubblegum-pink);
+    }
+
+    .br {
+		background : var(--berry-red);
+    }
+
+    .tr {
+        color: var(--berry-red);
+    }
+
+    .tpp {
+        color: var(--plum-purple);
+    }
+
+    .tl {
+        color: var(--frost-lavender);
+    }
+
+    .tca {
+        color: var(--coconut-aqua)
+    }
+
+    .ty {
+        color: var(--honey-yellow)
+    }
+
+    .bg {
+		background: var(--matcha-green);
+    }
+
+    .tg {
+        color: var(--matcha-green)
+    }
 </style>
