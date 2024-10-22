@@ -1,0 +1,75 @@
+---
+const code = `
+<p><span class="annotation">@file:JvmName("SundaeApp")</span></p>
+<p><span class="keyword">package</span> com.example.sundae</p>
+<br>
+<p><span class="keyword">import</span> kotlin.random.Random</p>
+<br>
+<p><span class="comment">/**</span></p>
+<p><span class="comment"> * This is a sample Kotlin program demonstrating various language features.</span></p>
+<p><span class="comment"> * @author Sundae Theme</span></p>
+<p><span class="comment"> */</span></p>
+<p><span class="keyword">fun</span> <span class="func-decl">main</span>() {</p>
+<div class="indent">
+    <p><span class="keyword">val</span> name = <span class="string">"Kotlin"</span></p>
+    <p><span class="builtin-call">println</span>(<span class="string">"Hello, $name!"</span>)</p>
+    <br>
+    <p><span class="keyword">val</span> fruits = <span class="func-call">listOf</span>(<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"cherry"</span>)</p>
+    <p><span class="keyword">for</span> (fruit <span class="keyword">in</span> fruits) {</p>
+    <div class="indent">
+        <p><span class="builtin-call">println</span>(<span class="string">"I like $fruit"</span>)</p>
+    </div>
+    <p>}</p>
+    <br>
+    <p><span class="keyword">val</span> person = <span class="func-call">Person</span>(<span class="string">"Alice"</span>, <span class="literal">30</span>)</p>
+    <p><span class="builtin-call">println</span>(person)</p>
+    <br>
+    <p><span class="keyword">val</span> randomNumber = <span class="static-call">Random.nextInt</span>(<span class="literal">1</span>, <span class="literal">100</span>)</p>
+    <p><span class="builtin-call">println</span>(<span class="string">"Random number: $randomNumber"</span>)</p>
+    <br>
+    <p><span class="keyword">val</span> message = <span class="string">"""</span></p>
+    <div class="indent">
+        <p><span class="string">    This is a multi-line string.</span></p>
+        <p><span class="string">    It can contain multiple lines of text.</span></p>
+        <p><span class="string">    No need for escape characters!</span></p>
+    </div>
+    <p><span class="string">    """</span>.<span class="func-call">trimIndent</span>()</p>
+    <p><span class="builtin-call">println</span>(message)</p>
+    
+    <p><span class="keyword">val</span> escapedString = <span class="string">"This string contains an escape sequence: \n"</span></p>
+    <p><span class="builtin-call">println</span>(escapedString)</p>
+</div>
+<p>}</p>
+<br>
+<p><span class="keyword">data class</span> <span class="class">Person</span>(<span class="keyword">val</span> name: <span class="class">String</span>, <span class="keyword">val</span> age: <span class="class">Int</span>)</p>
+<br>
+<p><span class="keyword">fun</span> <span class="func-decl">greet</span>(name: <span class="class">String</span>): <span class="class">String</span> {</p>
+<div class="indent">
+  <p><span class="keyword">return</span> <span class="string">"Welcome, $name!"</span></p>
+</div>
+<p>}</p>
+<br>
+<p><span class="keyword">enum class</span> <span class="enum">Color</span> {</p>
+<div class="indent">
+  <p><span class="enum-entry">RED</span>, <span class="enum-entry">GREEN</span>, <span class="enum-entry">BLUE</span></p>
+</div>
+<p>}</p>
+<br>
+<p><span class="keyword">interface</span> <span class="interface">Drawable</span> {</p>
+<div class="indent">
+  <p><span class="keyword">fun</span> <span class="func-decl">draw</span>()</p>
+</div>
+<p>}</p>
+<br>
+<p><span class="keyword">class</span> <span class="class">Circle</span>(<span class="keyword">private</span> <span class="keyword">val</span> radius: <span class="class">Double</span>) : <span class="interface">Drawable</span> {</p>
+<div class="indent">
+  <p><span class="keyword">override</span> <span class="keyword">fun</span> <span class="func-decl">draw</span>() {</p>
+  <div class="indent">
+    <p><span class="builtin-call">println</span>(<span class="string">"Drawing a circle with radius $radius"</span>)</p>
+  </div>
+  <p>}</p>
+</div>
+<p>}</p>`;
+---
+
+<code set:html={code} />

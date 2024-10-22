@@ -1,191 +1,217 @@
 @font-face {
-    font-family: "Argon";
-    font-size: 13px;
-    src: url(../../public/argon.ttf);
+	font-family : "Argon";
+	font-size   : 13px;
+	src         : url(/Argon.ttf);
 }
 
-@font-face {
-    font-family: "Radon";
-    font-size: 13px;
-    src: url(../../public/radon.ttf);
-}
 
 @font-face {
-    font-family: "Xenon";
-    font-size: 13px;
-    src: url(../../public/xenon.ttf);
+	font-family : "Radon";
+	font-size   : 13px;
+	src         : url(/Radon.ttf);
 }
 
+
 @font-face {
-    font-family: "JetBrainsMono NFP";
-    font-size: 13px;
-    src: url(../../public/JetbrainsMonoNFP.ttf);
+	font-family : "Xenon";
+	font-size   : 13px;
+	src         : url(/Xenon.ttf);
 }
+
+
+@font-face {
+	font-family : "JetBrainsMono NFP";
+	font-size   : 13px;
+	src         : url(/JetbrainsMonoNFP.ttf);
+}
+
 
 /* Maybe move this to seperate file for each theme */
 @property --truffle-black {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #28282e;
+	syntax        : "<color>";
+	inherits      : false;
+	initial-value : #28282E;
 }
+
 
 @property --plum-purple {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #6c5671;
+	syntax        : "<color>";
+	inherits      : false;
+	initial-value : #6C5671;
 }
+
 
 @property --almond-beige {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #d9c8bf;
+	syntax        : "<color>";
+	inherits      : false;
+	initial-value : #D9C8BF;
 }
+
 
 @property --milk-cream {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #ffe6c6;
+	syntax        : "<color>";
+	inherits      : false;
+	initial-value : #FFE6C6;
 }
+
 
 @property --frosting-white {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #fff7e4;
+	syntax        : "<color>";
+	inherits      : false;
+	initial-value : #FFF7E4;
 }
+
 
 @property --honey-yellow {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #fff7a0;
+	syntax        : "<color>";
+	inherits      : false;
+	initial-value : #FFF7A0;
 }
+
 
 @property --mango-orange {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #ffc384;
+	syntax        : "<color>";
+	inherits      : false;
+	initial-value : #FFC384;
 }
+
 
 @property --cocoa-brown {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #dea38b;
+	syntax        : "<color>";
+	inherits      : false;
+	initial-value : #DEA38B;
 }
+
 
 @property --sherbet-lime {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #e9f59d;
+	syntax        : "<color>";
+	inherits      : false;
+	initial-value : #E9F59D;
 }
+
 
 @property --matcha-green {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #b0eb93;
+	syntax        : "<color>";
+	inherits      : false;
+	initial-value : #B0EB93;
 }
+
 
 @property --minty-blue {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #87a889;
+	syntax        : "<color>";
+	inherits      : false;
+	initial-value : #87A889;
 }
+
 
 @property --bubblegum-pink {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #feaae4;
+	syntax        : "<color>";
+	inherits      : false;
+	initial-value : #FEAAE4;
 }
+
 
 @property --coconut-aqua {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #b3e3da;
+	syntax        : "<color>";
+	inherits      : false;
+	initial-value : #B3E3DA;
 }
+
 
 @property --glacier-capri {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #accce4;
+	syntax        : "<color>";
+	inherits      : false;
+	initial-value : #ACCCE4;
 }
+
 
 @property --frost-lavender {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #b0a9e4;
+	syntax        : "<color>";
+	inherits      : false;
+	initial-value : #B0A9E4;
 }
+
 
 @property --berry-red {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: #f98284;
+	syntax        : "<color>";
+	inherits      : false;
+	initial-value : #F98284;
 }
+
 
 body {
-    background-color: var(--milk-cream);
-    font-family: "Inter", sans-serif;
+	font-family      : "Inter", sans-serif;
+	background-color : var(--milk-cream);
 }
+
 
 header {
-    position: fixed;
-    right: 1em;
-    left: 1em;
-    display: flex;
-    z-index: 999;
-    justify-content: space-between;
-    align-items: center;
+	position        : fixed;
+	z-index         : 999;
+	right           : 1em;
+	left            : 1em;
+	display         : flex;
+	align-items     : center;
+	justify-content : space-between;
 }
 
+
 header > nav {
-    display: flex;
-    gap: 2em;
-    background-color: var(--frosting-white);
-    margin: 0.5em;
-    padding: 1em;
-    border-radius: 1em;
+	display          : flex;
+	margin           : 0.5em;
+	padding          : 1em;
+	border-radius    : 1em;
+	background-color : var(--frosting-white);
+	gap              : 2em;
 }
+
 
 a {
 }
 
+
 h1 {
-    font-family: "Shantell Sans", cursive;
-    font-weight: 800;
-    font-size: 4em;
-    line-height: 0.1em;
-    font-style: normal;
-    font-variation-settings:
-            "BNCE" 100,
-            "INFM" 100,
-            "SPAC" 0;
-    margin-top: 1.2em;
-    text-align: center;
+	font-family             : "Shantell Sans", cursive;
+	font-size               : 4em;
+	font-weight             : 800;
+	font-style              : normal;
+	line-height             : 0.1em;
+	margin-top              : 1.2em;
+	text-align              : center;
+	font-variation-settings : "BNCE" 100,
+	"INFM" 100,
+	"SPAC" 0;
 }
+
 
 h3 {
-    font-size: xx-large;
-    line-height: 0;
+	font-size   : xx-large;
+	line-height : 0;
 }
+
 
 h3, b {
-    font-family: "Shantell Sans", cursive;
-    font-variation-settings:
-            "BNCE" 100,
-            "INFM" 100,
-            "SPAC" 100;
+	font-family             : "Shantell Sans", cursive;
+	font-variation-settings : "BNCE" 100,
+	"INFM" 100,
+	"SPAC" 100;
 }
+
 
 .popup {
-    box-shadow:
-            inset 0px 0px 2px 2px rgba(0, 0, 0, 0.09),
-            inset 0px -8px 2px 2px rgba(0, 0, 0, 0.07),
-            0px 2px 3px 0px rgba(0, 0, 0, 0.05);
+	box-shadow : inset 0px 0px 2px 2px rgba(0, 0, 0, 0.09),
+	inset 0px -8px 2px 2px rgba(0, 0, 0, 0.07),
+	0px 2px 3px 0px rgba(0, 0, 0, 0.05);
 }
+
 
 .two-column {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+	display               : grid;
+	grid-template-columns : 1fr 1fr;
 }
 
+
 .wrappable {
-    display: flex;
-    flex-wrap: wrap;
+	display   : flex;
+	flex-wrap : wrap;
 }

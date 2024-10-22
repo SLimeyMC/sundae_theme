@@ -1,0 +1,30 @@
+---
+import TOML from './languages/TOML.astro';
+import Markdown from './languages/Markdown.astro';
+import Kotlin from './languages/Kotlin.astro';
+import Gleam from './languages/Gleam.astro';
+import Shell from './languages/Shell.astro';
+import Terminal from './languages/Terminal.astro';
+import '../styles/token.css';
+
+const languages = [
+    { name: 'Terminal', component: Terminal },
+    { name: 'TOML', component: TOML },
+    { name: 'Markdown', component: Markdown },
+    { name: 'Kotlin', component: Kotlin },
+    { name: 'Gleam', component: Gleam },
+    { name: 'Shell', component: Shell },
+];
+---
+
+<section class="language-showcase">
+	<h2>Language Showcase</h2>
+	<div class="showcase-container">
+        {languages.map((lang) => (
+				<div class="language-card">
+					<h3>{lang.name}</h3>
+					<lang.component />
+				</div>
+        ))}
+	</div>
+</section>

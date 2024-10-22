@@ -1,0 +1,49 @@
+---
+const code = `
+<p><span class="keyword"># Markdown Example</span></p>
+
+<p><span class="keyword">## Headers</span></p>
+
+<p><span class="keyword"># H1</span></p>
+<p><span class="keyword">## H2</span></p>
+<p><span class="keyword">### H3</span></p>
+
+<p><span class="keyword">## Emphasis</span></p>
+
+<p><span class="emphasis">*italic*</span> or <span class="emphasis">_italic_</span></p>
+<p><span class="strong">**bold**</span> or <span class="strong">__bold__</span></p>
+<p><span class="strong-emphasis">**_bold and italic_**</span></p>
+
+<p><span class="keyword">## Lists</span></p>
+
+<p>1. First item</p>
+<p>2. Second item</p>
+<p>3. Third item</p>
+
+<p>- Unordered item</p>
+<p>- Another item</p>
+<div class="indent">
+  <p>- Subitem</p>
+</div>
+
+<p><span class="keyword">## Links and Images</span></p>
+
+<p>[<span class="link-text">OpenAI</span>](<span class="link-url">https://www.openai.com</span>)</p>
+
+<p>![<span class="image-alt">Alt text</span>](<span class="image-url">image.jpg</span>)</p>
+
+<p><span class="keyword">## Code</span></p>
+
+<p>Inline <span class="inline-code">\`code\`</span> here.</p>
+
+<p><span class="code-block">\`\`\`python</span></p>
+<div class="indent">
+  <p><span class="keyword">def</span> <span class="func-decl">hello_world</span>():</p>
+  <div class="indent">
+    <p><span class="builtin-call">print</span>(<span class="string">"Hello, World!"</span>)</p>
+  </div>
+</div>
+<p><span class="code-block">\`\`\`</span></p>`;
+---
+
+<code set:html={code} />

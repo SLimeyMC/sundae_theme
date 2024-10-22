@@ -1,0 +1,34 @@
+---
+const code = `
+<p><span class="keyword">import</span> gleam/io</p>
+<p><span class="keyword">import</span> gleam/list</p>
+<p><span class="keyword">import</span> gleam/string</p>
+<br>
+<p><span class="keyword">pub fn</span> <span class="func-decl">main</span>() {</p>
+<div class="indent">
+  <p><span class="static-call">io.println</span>(<span class="string">"Hello from Gleam!"</span>)</p>
+<br>
+  <p><span class="keyword">let</span> numbers = [<span class="literal">1</span>, <span class="literal">2</span>, <span class="literal">3</span>, <span class="literal">4</span>, <span class="literal">5</span>]</p>
+  <p><span class="keyword">let</span> doubled = <span class="static-call">list.map</span>(numbers, <span class="keyword">fn</span>(x) { x * <span class="literal">2</span> })</p>
+  <p><span class="static-call">io.debug</span>(doubled)</p>
+<br>
+  <p><span class="keyword">let</span> name = <span class="string">"Gleam"</span></p>
+  <p><span class="keyword">let</span> greeting = <span class="static-call">string.concat</span>([<span class="string">"Hello, "</span>, name, <span class="string">"!"</span>])</p>
+  <p><span class="static-call">io.println</span>(greeting)</p>
+</div>
+<p>}</p>
+<br>
+<p><span class="keyword">pub type</span> <span class="class">Person</span> {</p>
+<div class="indent">
+  <p><span class="class">Person</span>(name: <span class="class">String</span>, age: <span class="class">Int</span>)</p>
+</div>
+<p>}</p>
+<br>
+<p><span class="keyword">pub fn</span> <span class="func-decl">greet</span>(person: <span class="class">Person</span>) -> <span class="class">String</span> {</p>
+<div class="indent">
+  <p><span class="string">"Hello, "</span> <> person.name <> <span class="string">"! You are "</span> <> <span class="static-call">string.inspect</span>(person.age) <> <span class="string">" years old."</span></p>
+</div>
+<p>}</p>`;
+---
+
+<code set:html={code} />

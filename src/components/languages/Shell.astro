@@ -1,0 +1,49 @@
+---
+const code = `
+<p><span class="comment">#!/bin/bash</span></p>
+
+<p><span class="comment"># Welcome message</span></p>
+<p><span class="builtin-call">echo</span> <span class="string">"Welcome to the Sundae theme showcase!"</span></p>
+
+<p><span class="comment"># Variables</span></p>
+<p><span class="keyword">NAME</span>=<span class="string">"Sundae"</span></p>
+<p><span class="keyword">VERSION</span>=<span class="string">"1.0.0"</span></p>
+
+<p><span class="comment"># Function definition</span></p>
+<p><span class="func-decl">greet</span>() {</p>
+<div class="indent">
+  <p><span class="keyword">local</span> name=<span class="param">$1</span></p>
+  <p><span class="builtin-call">echo</span> <span class="string">"Hello, $name!"</span></p>
+</div>
+<p>}</p>
+
+<p><span class="comment"># Conditional statement</span></p>
+<p><span class="keyword">if</span> [ <span class="string">"$NAME"</span> = <span class="string">"Sundae"</span> ]; <span class="keyword">then</span></p>
+<div class="indent">
+  <p><span class="builtin-call">echo</span> <span class="string">"This is the $NAME theme, version $VERSION"</span></p>
+</div>
+<p><span class="keyword">else</span></p>
+<div class="indent">
+  <p><span class="builtin-call">echo</span> <span class="string">"Unknown theme"</span></p>
+</div>
+<p><span class="keyword">fi</span></p>
+
+<p><span class="comment"># Loop</span></p>
+<p><span class="keyword">for</span> i <span class="keyword">in</span> {1..5}; <span class="keyword">do</span></p>
+<div class="indent">
+  <p><span class="builtin-call">echo</span> <span class="string">"Count: $i"</span></p>
+</div>
+<p><span class="keyword">done</span></p>
+
+<p><span class="comment"># Command substitution</span></p>
+<p>current_date=$(<span class="builtin-call">date</span> +<span class="string">"%Y-%m-%d"</span>)</p>
+<p><span class="builtin-call">echo</span> <span class="string">"Today's date is $current_date"</span></p>
+
+<p><span class="comment"># Call function</span></p>
+<p><span class="func-call">greet</span> <span class="string">"User"</span></p>
+
+<p><span class="comment"># Exit</span></p>
+<p><span class="builtin-call">exit</span> <span class="literal">0</span></p>`;
+---
+
+<code set:html={code} />

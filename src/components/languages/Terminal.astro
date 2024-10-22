@@ -1,0 +1,89 @@
+---
+const code = `
+<p><span class="prompt"><span class="username">SlimeyAr</span><span class="separator">:</span><span class="directory">.sundae_theme</span> <span class="git-branch">git(butler/workspace)</span></span></p>
+<p><span class="prompt">user  </span><span class="command">bun run dev</span></p>
+<p><span class="prompt">$ </span><span class="command">astro dev</span></p>
+<p><span class="timestamp">18:10:15</span> <span class="log-type">[vite]</span> Generated 2ms</p>
+<p><span class="timestamp">18:10:15</span> <span class="log-type">[vite]</span> Port 4321 is in use, trying another one...</p>
+<p><span class="astro-ready">astro</span> <span class="version">v4.14.4</span> ready in 283 ms</p>
+<p><span class="local">┃ Local    http://localhost:4322/</span></p>
+<p><span class="network">┃ Network  use --host to expose</span></p>
+<p><span class="timestamp">18:10:15</span> <span class="watching">watching for file changes...</span></p>
+<p><span class="cursor">█</span></p>`;
+---
+
+<code set:html={code} />
+
+<style>
+	.prompt {
+		color: var(--frosting-white);
+	}
+
+	.username {
+		background-color: var(--plum-purple);
+		padding: 2px 5px;
+	}
+
+	.separator {
+		background-color: var(--mango-orange);
+		padding: 2px 5px;
+	}
+
+	.directory {
+		background-color: var(--minty-blue);
+		padding: 2px 5px;
+	}
+
+	.git-branch {
+		background-color: var(--honey-yellow);
+		color: var(--truffle-black);
+		padding: 2px 5px;
+	}
+
+	.command {
+		color: var(--frosting-white);
+	}
+
+	.timestamp {
+		color: var(--glacier-capri);
+	}
+
+	.log-type {
+		color: var(--bubblegum-pink);
+	}
+
+	.astro-ready {
+		background-color: var(--sherbet-lime);
+		color: var(--truffle-black);
+		padding: 2px 5px;
+	}
+
+	.version {
+		color: var(--frost-lavender);
+	}
+
+	.local, .network {
+		color: var(--coconut-aqua);
+	}
+
+	.watching {
+		color: var(--matcha-green);
+	}
+
+	.cursor {
+		color: var(--frosting-white);
+		animation: blink 1s step-end infinite;
+	}
+
+	@keyframes blink {
+		50% {
+			opacity: 0;
+		}
+	}
+
+	/* Terminal card specific styles */
+	.language-card:first-child {
+		background-color: var(--truffle-black);
+		color: var(--frosting-white);
+	}
+</style>
