@@ -1,5 +1,7 @@
 code {
 	font-family : "Argon", monospace;
+	font-size : 16px;
+	line-height : 0.5em;
 }
 
 
@@ -181,7 +183,6 @@ details.doc-comment[open] {
 
 .comment {
 	font-family   : Radon, monospace;
-	padding       : 2px;
 	color         : var(--frosting-white);
 	border-radius : 12px 4px 12px 4px;
 	background    : var(--plum-purple);

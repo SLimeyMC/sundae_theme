@@ -4,33 +4,29 @@ const code = `
 ---
 
 <div class="terminal" >
-    <code>
-	    <p>
-		    <span class="tc"></span><span class="bc tpp"> <span class="tw"></span> SlimeyAr:</span><span class="tc bp"></span><span class="bp tpp"> .sundae_theme</span><span class="tp br"></span><span class="br tpp">  gitbutler/workspace</span><span class="tr "></span>
-	    </p>
-        <p><span class="tw">user </span> <span class="ty">bun</span> run dev</p>
-	    <p><span class="tpp">$ </span>astro dev</p>
-	    <p>22:08:06 <span class="tca">[vite]</span><span class="tw"> Generated</span> 2ms</p>
-        <br>
-	    <p>&nbsp; <span class="tw bg">&nbsp;astro </span>&nbsp;<span class="tg">v4.14.4</span> ready in <span class="tw">806</span> ms</p>
-	    <p>┃ <span class="tw">Local</span> <u class="tc">http://localhost:4322/</u></p>
-	    <p>┃ <span class="tw">Network</span>  use --host to expose</p>
-        <br>
-	    <p>22:08:06 <span class="tg">watching for file changes...</span></p>
-	    <p><span class="cursor tw">█</span></p>
-    </code>
+	<p>
+		<span class="tc"></span><span class="bc tpp"> <span class="tw"></span> SlimeyAr:</span><span class="tc bp"></span><span class="bp tpp"> .sundae_theme</span><span class="tp bg"></span><span class="bg tpp">  gitbutler/workspace</span><span class="tg "></span>
+	</p>
+	<p><span class="tw">user </span> <span class="ty">bun</span> run dev</p>
+	<p><span class="tpp">$ </span>astro dev</p>
+	<p>22:08:06 <span class="tca">[vite]</span><span class="tw"> Generated</span> 2ms</p>
+	<br>
+	<p>&nbsp; <span class="tw bg">&nbsp;astro </span>&nbsp;<span class="tg">v4.14.4</span> ready in <span class="tw">806</span> ms</p>
+	<p>┃ <span class="tw">Local</span> <u class="tc">http://localhost:4322/</u></p>
+	<p>┃ <span class="tw">Network</span>  use --host to expose</p>
+	<br>
+	<p>22:08:06 <span class="tg">watching for file changes...</span></p>
+	<p><span class="cursor tw">█</span></p>
 </div>
 
 <style>
 	.terminal {
+		font-family: "JetBrainsMono NFP", monospace;
         padding: 1em;
-        border-radius: 24px;
 		background-color : var(--truffle-black);
         color: var(--almond-beige);
-    }
+		line-height : 0.5em;
 
-    code {
-		font-family: "JetBrainsMono NFP", monospace;
     }
 
 	.cursor {
@@ -63,12 +59,8 @@ const code = `
         color: var(--bubblegum-pink);
     }
 
-    .br {
-		background : var(--berry-red);
-    }
-
-    .tr {
-        color: var(--berry-red);
+    .bg {
+		background : var(--matcha-green);
     }
 
     .tpp {

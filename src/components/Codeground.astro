@@ -7,24 +7,161 @@ import Shell from './languages/Shell.astro';
 import Terminal from './languages/Terminal.astro';
 import '../styles/token.css';
 
-const languages = [
-    { name: 'Terminal', component: Terminal },
-    { name: 'TOML', component: TOML },
-    { name: 'Markdown', component: Markdown },
-    { name: 'Kotlin', component: Kotlin },
-    { name: 'Gleam', component: Gleam },
-    { name: 'Shell', component: Shell },
-];
+const downArrow = `<svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 299.283"><path d="M75.334 12.591C10.57-24.337-20.852 28.186 15.131 64.566l200.866 209.613c33.472 33.471 46.534 33.471 80.006 0L496.869 64.566c35.983-36.38 4.561-88.903-60.203-51.975L256 109.944 75.334 12.591z"/></svg>`;
 ---
 
 <section class="language-showcase">
-	<h2>Language Showcase</h2>
-	<div class="showcase-container">
-        {languages.map((lang) => (
-				<div class="language-card">
-					<h3>{lang.name}</h3>
-					<lang.component />
-				</div>
-        ))}
+	<h1>Language Showcase!</h1>
+	<p set:html={downArrow} class="down-arrow" />
+	<div class="grid">
+		<div class="main-code-panel" id="main-code-panel">
+			<div class="tabs-bar">
+				<button class="tab active" data-tab="kotlin">Example.kt</button>
+				<button class="tab" data-tab="gleam">Example.gleam</button>
+				<button class="tab" data-tab="shell">Example.sh</button>
+			</div>
+			<div class="tab-content active" data-content="kotlin">
+				<Kotlin />
+			</div>
+			<div class="tab-content" data-content="gleam">
+				<Gleam />
+			</div>
+			<div class="tab-content" data-content="shell">
+				<Shell />
+			</div>
+		</div>
+
+		<div class="second-code-panel" id="second-code-panel">
+			<div class="tabs-bar">
+				<button class="tab active" data-tab="toml">Server.toml</button>
+				<button class="tab" data-tab="markdown">README.md</button>
+			</div>
+			<div class="tab-content active" data-content="toml">
+				<TOML />
+			</div>
+			<div class="tab-content" data-content="markdown">
+				<Markdown />
+			</div>
+		</div>
+
+		<details class="terminal-dropdown" open="">
+			<summary class="terminal-header" id="terminal-toggle">
+				<span>Terminal</span>
+			</summary>
+			<div class="terminal-content" id="terminal-content">
+				<Terminal />
+			</div>
+		</details>
 	</div>
 </section>
+
+<script>
+	function setupTabs(containerId) {
+		const container = document.getElementById(containerId);
+		const tabsBar = container.querySelector('.tabs-bar')
+		const tabs = tabsBar.querySelectorAll('.tab');
+		const contents = container.querySelectorAll('.tab-content');
+
+		tabs.forEach(tab => {
+			tab.addEventListener('click', () => {
+				const target = tab.dataset.tab;
+
+				tabs.forEach(t => t.classList.remove('active'));
+				contents.forEach(c => c.classList.remove('active'));
+
+				tab.classList.add('active');
+				container.parentElement.querySelector(`[data-content="${target}"]`).classList.add('active');
+			});
+		});
+	}
+
+	// Initialize both tab sets
+	setupTabs('main-code-panel');
+	setupTabs('second-code-panel');
+</script>
+
+<style>
+	.language-showcase {
+		--border-radius: 8px;
+		margin: 2rem 0;
+	}
+
+	.down-arrow {
+		margin: auto;
+		margin-top: -1em;
+		width : 24px;
+	}
+
+	.grid {
+		display: grid;
+		gap: 0.25em;
+		grid-template-areas:
+    "main secondary"
+    "terminal terminal";
+		grid-template-rows: minmax(0, 2fr) auto;
+		height: 80vh;
+	}
+
+	.main-code-panel {
+		grid-area: main;
+		border-radius: var(--border-radius);
+		overflow: hidden;
+	}
+
+	.second-code-panel {
+		grid-area: secondary;
+		border-radius: var(--border-radius);
+		overflow: hidden;
+	}
+
+	.tabs-bar {
+		display: flex;
+		background: var(--milk-cream);
+		gap: 0.25rem;
+		flex-shrink: 0;
+	}
+
+	.tab {
+		padding: var(--border-radius) calc(var(--border-radius) * 2);
+		background: var(--milk-cream);
+		border: none;
+		border-radius: var(--border-radius) var(--border-radius) 0 0;
+		cursor: pointer;
+	}
+
+	.tab.active {
+		background: var(--frosting-white);
+		opacity: 1;
+	}
+
+	.tab-content {
+		background: var(--frosting-white);
+		display: none;
+		padding: var(--border-radius);
+		overflow: auto;
+		height: 100%;
+	}
+
+	.tab-content.active {
+		display: block;
+		border-radius : var(--border-radius);
+	}
+
+	.terminal-dropdown {
+		grid-area: terminal;
+		background: var(--truffle-black);
+		border-radius: var(--border-radius);
+		overflow: hidden;
+		position: relative;
+	}
+
+	.terminal-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: var(--border-radius) 1rem;
+		color: var(--frosting-white);
+		cursor: ns-resize;
+		user-select: none;
+	}
+</style>
