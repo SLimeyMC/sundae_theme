@@ -1,30 +1,31 @@
 ---
 const code = `
-<p><span class="annotation">@file:JvmName("SundaeApp")</span></p>
+<p><span class="annotation">@file:JvmName(<span class="annotation-attribute">name:</span> <span class="string">"SundaeApp"</span>)</span></p>
 <p><span class="keyword">package</span> com.example.sundae</p>
 <br>
 <p><span class="keyword">import</span> kotlin.random.Random</p>
 <br>
-<p><span class="comment">/**</span></p>
-<p><span class="comment"> * This is a sample Kotlin program demonstrating various language features.</span></p>
-<p><span class="comment"> * @author Sundae Theme</span></p>
-<p><span class="comment"> */</span></p>
+<details class="doc-comment">
+    <summary>...</summary>
+    <p>/**</p>
+    <p> * This is a sample Kotlin program demonstrating various language features.</p>
+    <p> * <span class="doc-tag">@see</span> <span class="doc-link">SundaeTheme</span></p>
+    <p> */</p>
+</details>
+
 <p><span class="keyword">fun</span> <span class="func-decl">main</span>() {</p>
 <div class="indent">
     <p><span class="keyword">val</span> name = <span class="string">"Kotlin"</span></p>
     <p><span class="builtin-call">println</span>(<span class="string">"Hello, $name!"</span>)</p>
     <br>
-    <p><span class="keyword">val</span> fruits = <span class="func-call">listOf</span>(<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"cherry"</span>)</p>
+    <p><span class="keyword">val</span> fruits = <span class="static-call">listOf</span>(<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"cherry"</span>)</p>
     <p><span class="keyword">for</span> (fruit <span class="keyword">in</span> fruits) {</p>
     <div class="indent">
         <p><span class="builtin-call">println</span>(<span class="string">"I like $fruit"</span>)</p>
     </div>
     <p>}</p>
     <br>
-    <p><span class="keyword">val</span> person = <span class="func-call">Person</span>(<span class="string">"Alice"</span>, <span class="literal">30</span>)</p>
-    <p><span class="builtin-call">println</span>(person)</p>
-    <br>
-    <p><span class="keyword">val</span> randomNumber = <span class="static-call">Random.nextInt</span>(<span class="literal">1</span>, <span class="literal">100</span>)</p>
+    <p><span class="keyword">val</span> randomNumber = Random.<span class="static-call">nextInt</span>(<span class="literal">1</span>, <span class="literal">100</span>)</p>
     <p><span class="builtin-call">println</span>(<span class="string">"Random number: $randomNumber"</span>)</p>
     <br>
     <p><span class="keyword">val</span> message = <span class="string">"""</span></p>
@@ -34,10 +35,7 @@ const code = `
         <p><span class="string">    No need for escape characters!</span></p>
     </div>
     <p><span class="string">    """</span>.<span class="func-call">trimIndent</span>()</p>
-    <p><span class="builtin-call">println</span>(message)</p>
-    
-    <p><span class="keyword">val</span> escapedString = <span class="string">"This string contains an escape sequence: \n"</span></p>
-    <p><span class="builtin-call">println</span>(escapedString)</p>
+    <p><span class="keyword">val</span> escapedString = <span class="string">"This string contains an escape sequence: <span class="escape">\\n</span>"</span></p>
 </div>
 <p>}</p>
 <br>

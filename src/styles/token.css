@@ -58,7 +58,7 @@ code {
 	font-weight   : 800;
 	color         : var(--plum-purple);
 	border-radius : 4px;
-	background    : var(--sherbet-lime);
+	background    : var(--coconut-aqua);
 }
 
 
@@ -77,17 +77,16 @@ code {
 
 
 .builtin-call {
-	font-weight   : 800;
-	color         : var(--frosting-white);
+	color         : var(--plum-purple);
 	border-radius : 4px;
-	background    : var(--glacier-capri);
+	background    : var(--sherbet-lime);
 }
 
 
 .func-call {
 	color         : var(--plum-purple);
 	border-radius : 4px;
-	background    : var(--sherbet-lime);
+	background    : var(--coconut-aqua);
 }
 
 
@@ -165,17 +164,22 @@ details.doc-comment[open] {
 }
 
 
-/* details.doc-comment[open] > summary {
-    display: none;
-} */
+details.doc-comment > summary {
+	display : inline;
+	user-select: none;
+	cursor: pointer;
+	list-style: none;
+	padding : .25em;
+	width: auto;
+}
 
-.doc-comment.doc-link {
+.doc-link {
 	font-style : italic;
 	color      : var(--frost-lavender);
 }
 
 
-.doc-comment.doc-tag {
+.doc-tag {
 	font-style : italic;
 	color      : var(--bubblegum-pink);
 }
