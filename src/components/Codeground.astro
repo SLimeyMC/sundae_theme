@@ -104,12 +104,16 @@ const downArrow = `<svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geom
 
 	.main-code-panel {
 		grid-area: main;
+		display: flex;
+		flex-direction : column;
 		border-radius: var(--border-radius);
 		overflow: hidden;
 	}
 
 	.second-code-panel {
 		grid-area: secondary;
+		display: flex;
+		flex-direction : column;
 		border-radius: var(--border-radius);
 		overflow: hidden;
 	}
@@ -144,6 +148,7 @@ const downArrow = `<svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geom
 
 	.tab-content.active {
 		display: block;
+		flex : 1;
 		border-radius : var(--border-radius);
 	}
 
