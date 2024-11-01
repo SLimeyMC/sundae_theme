@@ -1,0 +1,84 @@
+---
+interface palette {
+    name: String,
+    color: String,
+}
+
+const palettes: palette[] = [
+    {name: "Frost Lavender", color: "#B0A9E4"},
+    {name: "Glacier Capri", color: "#ACCCE4"},
+    {name: "Coconut Aqua", color: "#B3E3DA"},
+    {name: "Berry Red", color: "#F98284"},
+    {name: "Minty Blue", color: "#87A889"},
+    {name: "Matcha Green", color: "#B0EB93"},
+    {name: "Sherbet Lime", color: "#E9F59D"},
+    {name: "Bubblegum Pink", color: "#FEAAE4"},
+    {name: "Cocoa Brown", color: "#DEA38B"},
+    {name: "Mango Orange", color: "#FFC384"},
+    {name: "Honey Yellow", color: "#FFF7A0"},
+    {name: "Milk Cream", color: "#FFE6C6"},
+    {name: "Truffle Black", color: "#28282E"},
+    {name: "Plum Purple", color: "#6C5671"},
+    {name: "Almond Beige", color: "#D9C8BF"},
+    {name: "Frosting White", color: "#FFF7E4"},
+]
+
+const downArrow = `<svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 299.283"><path d="M75.334 12.591C10.57-24.337-20.852 28.186 15.131 64.566l200.866 209.613c33.472 33.471 46.534 33.471 80.006 0L496.869 64.566c35.983-36.38 4.561-88.903-60.203-51.975L256 109.944 75.334 12.591z"/></svg>`;
+---
+<section>
+	<h1>Simple Swatch!</h1>
+	<p set:html={downArrow} class="down-arrow" />
+	<ul>
+        {palettes.map(palette => (
+				<li class="popup hover-card" style={{backgroundColor: palette.color}}>
+					<span>{palette.name}</span>
+				</li>
+        ))}
+	</ul>
+</section>
+
+<style>
+	ul {
+		display               : grid;
+		grid-template-columns : repeat(4, 1fr);
+		place-items           : center;
+		place-self            : center;
+		gap                   : 1em;
+		padding               : 0;
+	}
+
+
+	li {
+		list-style     : none;
+		display        : inline-block;
+		width          : 6em;
+		height         : 6em;
+		text-align     : center;
+		vertical-align : center;
+		line-height    : 6em;
+		transition     : 1s;
+	}
+
+
+	span {
+		background      : inherit;
+		background-clip : text;
+		color           : transparent;
+		filter          : invert(1) grayscale(1);
+		display         : inline-block;
+		vertical-align  : middle;
+		line-height     : 1em;
+	}
+
+
+	li:hover {
+		transform : scale(1.1);
+	}
+
+
+	.down-arrow {
+		margin     : auto;
+		margin-top : -1em;
+		width      : 24px;
+	}
+</style>

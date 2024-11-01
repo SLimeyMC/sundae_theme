@@ -1,0 +1,101 @@
+---
+// ResizableSplitPanel.astro
+---
+
+<div class="split-panel">
+	<div class="left-panel">
+		<slot name="left">Left Panel Content</slot>
+	</div>
+	<div class="resizer" data-resizer></div>
+	<div class="right-panel">
+		<slot name="right">Right Panel Content</slot>
+	</div>
+</div>
+
+<style>
+	.split-panel {
+		display: grid;
+		grid-template-columns: minmax(200px, 1fr) 8px minmax(200px, 1fr);
+		min-height: 100vh;
+		overflow: hidden;
+	}
+
+	.resizer {
+		grid-column: 2;
+		background-color: #e2e8f0;
+		cursor: col-resize;
+		transition: background-color 0.2s;
+	}
+
+	.resizer:hover,
+	.resizer.resizing {
+		background-color: #94a3b8;
+	}
+
+	.left-panel {
+		grid-column: 1;
+		overflow: auto;
+		padding: 1rem;
+	}
+
+	.right-panel {
+		grid-column: 3;
+		overflow: auto;
+		padding: 1rem;
+	}
+</style>
+
+<script>
+    const resizer = document.querySelector('[data-resizer]') as HTMLElement;
+    const leftPanel = resizer?.previousElementSibling as HTMLElement;
+    const rightPanel = resizer?.nextElementSibling as HTMLElement;
+    let isResizing = false;
+    let startPos = 0;
+    let startWidth = 0;
+
+    function initResizer() {
+        if (!resizer) return;
+
+        const startResizing = (e: MouseEvent) => {
+            isResizing = true;
+            startPos = e.clientX;
+            startWidth = leftPanel.offsetWidth;
+            resizer.classList.add('resizing');
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', stopResizing);
+        };
+
+        const handleMouseMove = (e: MouseEvent) => {
+            if (!isResizing) return;
+
+            const delta = e.clientX - startPos;
+            const newWidth = startWidth + delta;
+            const container = resizer.parentElement as HTMLElement;
+            const maxWidth = container.offsetWidth - 200; // Ensure right panel has at least 200px
+
+            if (newWidth >= 200 && newWidth <= maxWidth) {
+                const leftFr = newWidth / container.offsetWidth;
+                const rightFr = 1 - leftFr;
+                container.style.gridTemplateColumns = `${leftFr}fr 8px ${rightFr}fr`;
+            }
+        };
+
+        const stopResizing = () => {
+            isResizing = false;
+            resizer.classList.remove('resizing');
+            document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseup', stopResizing);
+        };
+
+        resizer.addEventListener('mousedown', startResizing);
+    }
+
+    // Initialize resizer when the component mounts
+    initResizer();
+
+    // Clean up when the component is destroyed
+    document.addEventListener('astro:before-swap', () => {
+        const resizer = document.querySelector('[data-resizer]');
+        resizer?.removeEventListener('mousedown', initResizer);
+    });
+</script>
