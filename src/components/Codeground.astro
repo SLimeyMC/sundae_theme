@@ -43,15 +43,13 @@ const downArrow = `<svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geom
 				<Markdown />
 			</div>
 		</div>
-
-		<details class="terminal-dropdown" open="">
-			<summary class="terminal-header" id="terminal-toggle">
+		<div data-resizer >==</div>
+		<div class="terminal-content">
+			<div class="terminal-dropdown">
 				<span>Terminal</span>
-			</summary>
-			<div class="terminal-content" id="terminal-content">
-				<Terminal />
 			</div>
-		</details>
+			<Terminal />
+		</div>
 	</div>
 </section>
 
@@ -96,9 +94,10 @@ const downArrow = `<svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geom
 		display: grid;
 		gap: 0.25em;
 		grid-template-areas:
-    "main secondary"
+    "main     secondary"
+	"vsplit   vsplit"
     "terminal terminal";
-		grid-template-rows: minmax(0, 2fr) auto;
+		grid-template-rows: minmax(0, 2fr) 2px auto;
 		height: 80vh;
 	}
 
@@ -152,21 +151,33 @@ const downArrow = `<svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geom
 		border-radius : var(--border-radius);
 	}
 
-	.terminal-dropdown {
-		grid-area: terminal;
-		background: var(--truffle-black);
-		border-radius: var(--border-radius);
-		overflow: hidden;
-		position: relative;
+	div[data-resizer] {
+		grid-area: vsplit;
+		cursor: ns-resize;
+		text-align: center;
+		user-select: none;
+		color : var(--truffle-black);
+		margin-top: -0.5em;
+		width: 100%;
 	}
 
-	.terminal-header {
-		display: flex;
+	div[data-resizer]:hover {
+		color : var(--plum-purple);
+	}
+
+	.terminal-dropdown {
+		background: var(--truffle-black);
+		color : var(--frosting-white);
+	}
+
+	.terminal-content {
+		grid-area: terminal;
 		justify-content: space-between;
 		align-items: center;
 		padding: var(--border-radius) 1rem;
+		border-radius: var(--border-radius);
+		background : var(--truffle-black);
 		color: var(--frosting-white);
-		cursor: ns-resize;
 		user-select: none;
 	}
 </style>

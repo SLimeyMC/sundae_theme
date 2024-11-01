@@ -10,8 +10,8 @@ code {
 }
 
 
-.annotation, .annotation-attribute, .builtin-call, .class, .comment, .doc-link, .doc-tag, .string,
-.func-call, .func-decl, .generic-param, .literal, .param, .static-call {
+.annotation, .annotation-attribute, .builtin-call, .class, .comment, .doc-link, .doc-tag, .string:not(.annotation *),
+.func-call, .func-decl, .generic-param, .literal:not(.annotation *), .param, .static-call {
 	margin  : -2px;
 	padding : 2px;
 }

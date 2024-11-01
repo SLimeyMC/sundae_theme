@@ -16,17 +16,17 @@ const code = `
 <p><span class="keyword">fun</span> <span class="func-decl">main</span>() {</p>
 <div class="indent">
     <p><span class="keyword">val</span> name = <span class="string">"Kotlin"</span></p>
-    <p><span class="builtin-call">println</span>(<span class="string">"Hello, $name!"</span>)</p>
+    <p><span class="builtin-call">println</span>(<span class="string">"Hello, <span class="teamplate">$name</span>!"</span>)</p>
     <br>
     <p><span class="keyword">val</span> fruits = <span class="static-call">listOf</span>(<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"cherry"</span>)</p>
     <p><span class="keyword">for</span> (fruit <span class="keyword">in</span> fruits) {</p>
     <div class="indent">
-        <p><span class="builtin-call">println</span>(<span class="string">"I like $fruit"</span>)</p>
+        <p><span class="builtin-call">println</span>(<span class="string">"I like <span class="template">$fruit</span>"</span>)</p>
     </div>
     <p>}</p>
     <br>
     <p><span class="keyword">val</span> randomNumber = Random.<span class="static-call">nextInt</span>(<span class="literal">1</span>, <span class="literal">100</span>)</p>
-    <p><span class="builtin-call">println</span>(<span class="string">"Random number: $randomNumber"</span>)</p>
+    <p><span class="builtin-call">println</span>(<span class="string">"Random number: <span class="template">$randomNumber</span>"</span>)</p>
     <br>
     <p><span class="keyword">val</span> message = <span class="string">"""</span></p>
     <div class="indent">
@@ -43,7 +43,7 @@ const code = `
 <br>
 <p><span class="keyword">fun</span> <span class="func-decl">greet</span>(name: <span class="class">String</span>): <span class="class">String</span> {</p>
 <div class="indent">
-  <p><span class="keyword">return</span> <span class="string">"Welcome, $name!"</span></p>
+  <p><span class="keyword">return</span> <span class="string">"Welcome, <span class="template">$name</span>!"</span></p>
 </div>
 <p>}</p>
 <br>
@@ -63,7 +63,7 @@ const code = `
 <div class="indent">
   <p><span class="keyword">override</span> <span class="keyword">fun</span> <span class="func-decl">draw</span>() {</p>
   <div class="indent">
-    <p><span class="builtin-call">println</span>(<span class="string">"Drawing a circle with radius $radius"</span>)</p>
+    <p><span class="builtin-call">println</span>(<span class="string">"Drawing a circle with radius <span class="template">$radius</span>"</span>)</p>
   </div>
   <p>}</p>
 </div>
